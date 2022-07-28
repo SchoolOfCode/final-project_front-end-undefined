@@ -18,7 +18,8 @@ export default function Home() {
       </Head>
       <SearchBar />
       <Map/>
-    </div>)
+    </div>
+    )
 }
 
 
