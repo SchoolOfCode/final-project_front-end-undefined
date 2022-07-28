@@ -2,6 +2,11 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import SearchBar from "../Components/SearchBar/SearchBar.js";
+import dynamic from 'next/dynamic'
+const Map = dynamic(() => import("../Components/Map/Map"), {
+  loading: () => "Loading...",
+  ssr: false,
+});
 
 export default function Home() {
   return (
@@ -12,6 +17,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SearchBar />
-    </div>
-  );
+      <Map/>
+    </div>)
 }
+
+
+
+
