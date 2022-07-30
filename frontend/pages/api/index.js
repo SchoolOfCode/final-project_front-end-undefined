@@ -22,6 +22,7 @@ export const getPlacesData = async (type, sw, ne) => {
         },
       }
     );
+    console.log(JSON.stringify(data, null, 4));
     return data;
   } catch (error) {
     console.log(`Fetch data Error : ${error}`);
