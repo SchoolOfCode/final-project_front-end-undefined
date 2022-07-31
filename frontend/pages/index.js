@@ -8,15 +8,26 @@ import { getPlacesData } from "./api";
 import Head from "next/head";
 
 const GOOGLE_API = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+const placesDummy = [
+  {name: 'Hard coded Place 1'},
+  {name: 'Hard coded Place 2'},
+  {name: 'Hard coded Place 3'},
+  {name: 'Hard coded Place 4'},
+  {name: 'Hard coded Place 5'},
+  {name: 'Hard coded Place 6'}
+]
 
 const Home = () => {
-  const [places, setPlaces] = useState([]);
+  const [places, setPlaces] = useState([]); // Pass this to List component
+
   const [filteredPlaces, setFilteredPlaces] = useState([]);
   const [coordinates, setCoordinates] = useState({});
   const [bounds, setBounds] = useState(null);
   const [type, setType] = useState("restaurants");
   const [ratings, setRatings] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+
+  //
+  const [isLoading, setIsLoading] = useState(false); // Pass this to List component
 
   useEffect(() => {
     // get the users current location on intial login
@@ -64,10 +75,11 @@ const Home = () => {
         setCoordinates={setCoordinates}
       />
 
-      <List
+<List places={placesDummy} isLoading={isLoading} />
+      {/* <List
         places={filteredPlaces.length ? filteredPlaces : places}
         isLoading={isLoading}
-      />
+      /> */}
 
       <Map
         setCoordinates={setCoordinates}

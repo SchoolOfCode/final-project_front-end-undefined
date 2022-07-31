@@ -3,7 +3,7 @@ import React from "react";
 import PlaceDetail from "./PlaceDetail";
 
 const List = ({ places, isLoading }) => {
-  if (isLoading)
+  if (isLoading) //if the map position changes, and fetching the API...
     return (
       <Flex
         direction={"column"}
@@ -39,7 +39,7 @@ const List = ({ places, isLoading }) => {
         </Box>
       </Flex>
     );
-
+//IF map fully loaded do the following:
   return (
     <Flex
       direction={"column"}
