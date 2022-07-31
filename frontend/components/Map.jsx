@@ -27,8 +27,8 @@ const Map = ({ coordinates, setCoordinates, setBounds, places }) => {
       >
         {places?.map((place, i) => (
           <Box
-            lat={Number(place.latitude)}
-            lng={Number(place.longitude)}
+            lat={Number(place.geometry.coordinates[1])}
+            lng={Number(place.geometry.coordinates[0])}
             position={"relative"}
             cursor="pointer"
           >

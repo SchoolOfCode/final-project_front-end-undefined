@@ -24,6 +24,7 @@ const PlaceDetail = ({ place }) => {
           width="full"
           px={2}
         >
+          {/* Title Flex Box */}
           <Flex
             alignItems={"center"}
             width={"full"}
@@ -36,40 +37,40 @@ const PlaceDetail = ({ place }) => {
               fontWeight={"500"}
               isTruncated
             >
-              {place.name}
+              {place.NAME}
             </Text>
 
             <Text fontSize={"sm"} fontWeight={"500"} color={"gray.500"}>
-              {place.price}
+              {place.PRICE}
             </Text>
           </Flex>
 
           {/* Ratings */}
           <Flex alignItems={"center"} width={"full"}>
-            <Rating size="small" value={Number(place.rating)} readOnly />
+            <Rating size="small" value={Number(place.RATING)} readOnly />
             <Text
               fontSize={"sm"}
               fontWeight={"500"}
               color={"gray.500"}
-            >{`(${place.num_reviews})`}</Text>
+            >{`(${place.RATING_NUMBERS})`}</Text>
             <Text
               fontSize={"sm"}
               fontWeight={"500"}
               color={"gray.500"}
               ml={"auto"}
             >
-              {place.price_level}
+              {place.BUDGET}
             </Text>
           </Flex>
 
-          {/* Ranking */}
+          {/* Details */}
           <Text fontSize={"sm"} fontWeight={"500"} color={"gray.400"}>
-            {place.ranking}
+            {place.DESCRIPTION}
           </Text>
 
           {/* Open status */}
           <Text fontSize={"sm"} fontWeight={"500"} color={"gray.600"}>
-            {place.open_now_text}
+            {place.OPEN}
           </Text>
 
           {/* dietary_restrictions */}
@@ -102,7 +103,7 @@ const PlaceDetail = ({ place }) => {
         />
       </Flex>
 
-      {place?.address && (
+      {place?.ADDRESS && (
         <Flex alignItems={"center"} width={"full"} px={1} my={2}>
           <IoLocation fontSize={20} color="gray" />
           <Text
@@ -112,7 +113,7 @@ const PlaceDetail = ({ place }) => {
             color={"gray.700"}
             ml={1}
           >
-            {place.address}
+            {place.ADDRESS}
           </Text>
         </Flex>
       )}

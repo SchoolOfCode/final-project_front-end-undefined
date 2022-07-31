@@ -1,3 +1,5 @@
+import * as locationData from './api/data.json'
+
 import { Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
@@ -6,6 +8,7 @@ import Map from "../components/Map";
 import PlaceDetail from "../components/PlaceDetail";
 import { getPlacesData } from "./api";
 import Head from "next/head";
+
 
 const GOOGLE_API = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 const placesDummy = [
@@ -26,6 +29,8 @@ const Home = () => {
   const [type, setType] = useState("restaurants");
   const [ratings, setRatings] = useState("");
 
+  //console.log(`locationData is...`, JSON.stringify(locationData.features[0].properties.NAME, null, 2))  
+
   //
   const [isLoading, setIsLoading] = useState(false); // Pass this to List component
 
@@ -40,20 +45,20 @@ const Home = () => {
     );
   }, []);
 
-  useEffect(() => {
-    const filteredData = places.filter((place) => place.rating > ratings);
-    setFilteredPlaces(filteredData);
-    console.log({ ratings });
-  }, [ratings]);
+  // useEffect(() => {
+  //   const filteredData = places.filter((place) => place.rating > ratings);
+  //   setFilteredPlaces(filteredData);
+  //   console.log({ ratings });
+  // }, [ratings]);
 
-  useEffect(() => {
-    setIsLoading(true);
-    getPlacesData(type, bounds?.sw, bounds?.ne).then((data) => {
-      console.log(data);
-      setPlaces(data);
-      setIsLoading(false);
-    });
-  }, [type, coordinates, bounds]);
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   getPlacesData(type, bounds?.sw, bounds?.ne).then((data) => {
+  //     console.log(data);
+  //     setPlaces(data);
+  //     setIsLoading(false);
+  //   });
+  // }, [type, coordinates, bounds]);
 
   return (
     <Flex
@@ -75,7 +80,7 @@ const Home = () => {
         setCoordinates={setCoordinates}
       />
 
-<List places={placesDummy} isLoading={isLoading} />
+<List places={locationData.places} isLoading={isLoading} />
       {/* <List
         places={filteredPlaces.length ? filteredPlaces : places}
         isLoading={isLoading}
@@ -85,7 +90,7 @@ const Home = () => {
         setCoordinates={setCoordinates}
         coordinates={coordinates}
         setBounds={setBounds}
-        places={filteredPlaces.length ? filteredPlaces : places}
+        places={filteredPlaces.length ? filteredPlaces : locationData.places}
       />
     </Flex>
   );

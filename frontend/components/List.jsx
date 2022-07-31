@@ -4,7 +4,9 @@ import PlaceDetail from "./PlaceDetail";
 
 const List = ({ places, isLoading }) => {
   if (isLoading) //if the map position changes, and fetching the API...
-    return (
+  
+  return (
+      
       <Flex
         direction={"column"}
         bg={"whiteAlpha.900"}
@@ -40,6 +42,7 @@ const List = ({ places, isLoading }) => {
       </Flex>
     );
 //IF map fully loaded do the following:
+
   return (
     <Flex
       direction={"column"}
@@ -53,9 +56,11 @@ const List = ({ places, isLoading }) => {
       overflow="hidden"
       px={2}
     >
+
+{/* locationData.features[0].properties.NAME */}
       <Flex flex={1} overflowY={"scroll"} mt={16} direction={"column"}>
         {places &&
-          places.map((place, i) => <PlaceDetail place={place} key={i} />)}
+          places.map((place, i) => <PlaceDetail place={place.properties} key={i} />)}
       </Flex>
     </Flex>
   );
