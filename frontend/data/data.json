@@ -1,0 +1,101 @@
+{
+    "places": [
+      {
+        "properties": {
+          "LOCATION_ID": 1,
+          "FACILITYID": 28014,
+          "NAME": "Bill's Soho Restaurant",
+          "ADDRESS": "24 Great Windmill St, London W1D 7LG",
+          "RATING": 5,
+          "RATING_NUMBERS": 7,
+          "TYPE": "restaurant",
+          "PRICE": "£14-£20",
+          "BUDGET": "£££",
+          "OPEN": "Wednesday, 12–3pm, 5–10:30pm",
+          "MODIFIED_DATE": "2018/01/18",
+          "CREATED_DATE": null,
+          "FACILITY_LIST": "Wheelchair access, Lift, Vending machine",
+          "SHORT_DESCRIPTION": "What a lovely place...",
+          "DESCRIPTION": "Atmospheric basement restaurant and bar for seared meat chops, plus cocktails from trolley carts.",
+          "PICTURE_THUMBNAIL": null,
+          "PICTURE_MAIN": null,
+          "PICTURE__1": null,
+          "FACILITY_1": "Steak house",
+          "FACILITY_2": "Steak house",
+          "FACILITY_3": "Steak house",
+          "WHEELCHAIR": true,
+          "STAIRLESS_ACCESS": true,
+          "NOTES": "Outdoor"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-0.13521278619092814, 51.51226090514994]
+        }
+      },
+      {
+        "properties": {
+          "LOCATION_ID": 2,
+          "FACILITYID": 28013,
+          "NAME": "Blacklock Soho",
+          "ADDRESS": "24 Great Windmill St, London W1D 7LG",
+          "RATING": 4.5,
+          "RATING_NUMBERS": 27,
+          "TYPE": "restaurant",
+          "PRICE": "£14-£20",
+          "BUDGET": "£££",
+          "OPEN": "Wednesday, 12–3pm, 5–10:30pm",
+          "MODIFIED_DATE": "2018/01/18",
+          "CREATED_DATE": null,
+          "FACILITY_LIST": "Wheelchair access, phone booth, WC",
+          "SHORT_DESCRIPTION": "What a lovely place...",
+          "DESCRIPTION": "Contemporary European chain dishing up separate breakfast, afternoon tea, lunch and dinner menus.",
+          "PICTURE_THUMBNAIL": null,
+          "PICTURE_MAIN": null,
+          "PICTURE__1": null,
+          "FACILITY_1": "Steak house",
+          "FACILITY_2": "Steak house",
+          "FACILITY_3": "Steak house",
+          "WHEELCHAIR": true,
+          "STAIRLESS_ACCESS": true,
+          "NOTES": "Outdoor"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-0.13521278919092814, 51.51726090514994]
+        }
+      },
+  
+      {
+        "properties": {
+          "LOCATION_ID": 3,
+          "FACILITYID": 28043,
+          "NAME": "Mac Soho",
+          "ADDRESS": "23 Great Windmill St, London W1D 7LG",
+          "RATING": 3,
+          "RATING_NUMBERS": 71,
+          "TYPE": "restaurant",
+          "PRICE": "£14-£20",
+          "BUDGET": "£££",
+          "OPEN": "Wednesday, 12–3pm, 5–10:30pm",
+          "MODIFIED_DATE": "2018/01/18",
+          "CREATED_DATE": null,
+          "FACILITY_LIST": "Wheelchair access, phone booth, WC",
+          "SHORT_DESCRIPTION": "What a lovely place...",
+          "DESCRIPTION": "Contemporary European chain dishing up separate breakfast, afternoon tea, lunch and dinner menus.",
+          "PICTURE_THUMBNAIL": null,
+          "PICTURE_MAIN": null,
+          "PICTURE__1": null,
+          "FACILITY_1": "Steak house",
+          "FACILITY_2": "Steak house",
+          "FACILITY_3": "Steak house",
+          "WHEELCHAIR": true,
+          "STAIRLESS_ACCESS": true,
+          "NOTES": "Outdoor"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-0.13521278619092814, 51.51326090514994]
+        }
+      }
+    ]
+  }

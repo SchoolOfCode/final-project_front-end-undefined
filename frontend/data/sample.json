@@ -1,0 +1,61 @@
+[
+  {
+    "location_id": "19692076",
+    "name": "A Capela",
+    "latitude": "43.30282",
+    "longitude": "-8.50954",
+    "num_reviews": "148",
+    "location_string": "Arteixo, Province of A Coruna, Galicia",
+    "photo": {
+      "images": {
+        "large": {
+          "width": "828",
+          "url": "https://media-cdn.tripadvisor.com/media/photo-o/1a/4c/1f/f8/wagyu-japones.jpg",
+          "height": "461"
+        }
+      }
+    },
+   
+    
+    "bearing": "southwest",
+    "rating": "5.0",
+    "is_closed": false,
+    "open_now_text": "Closed today",
+    "is_long_closed": false,
+    "price_level": "$$$$",
+    "price": "$30 - $70",
+    "description": "",
+    "phone": "+34 623 10 10 95",
+    "website": "https://www.facebook.com/A-capela-110761787023580/",
+    "email": "grupoparpatana@gmail.com",
+    "address_obj": {
+      "street1": "Rua Capela",
+      "street2": null,
+      "city": "Arteixo",
+      "state": null,
+      "country": "Spain",
+      "postalcode": "15142"
+    },
+    "address": "Rua Capela, 15142 Arteixo Spain",
+    "cuisine": [
+      {
+        "key": "10649",
+        "name": "Mediterranean"
+      },
+      {
+        "key": "10651",
+        "name": "Barbecue"
+      },
+      {
+        "key": "10655",
+        "name": "Spanish"
+      },
+      {
+        "key": "10679",
+        "name": "Healthy"
+      }
+    ],
+    "dietary_restrictions": [],
+    "type": "restaurants"
+  }
+]
