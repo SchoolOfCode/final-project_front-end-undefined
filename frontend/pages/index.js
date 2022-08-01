@@ -12,7 +12,8 @@ import Head from "next/head";
 
 
 const Home = () => {
-  const [places, setPlaces] = useState([]);
+  // const [places, setPlaces] = useState([]);
+  const places = locationData
   const [filteredPlaces, setFilteredPlaces] = useState([]);
   const [coordinates, setCoordinates] = useState({});
   const [bounds, setBounds] = useState(null);
@@ -32,22 +33,22 @@ const Home = () => {
   }, []);
 
 // updates the data to the users choice of rating 
-  useEffect(() => {
-    const filteredData = places.filter((place) => place.rating > ratings);
-    setFilteredPlaces(filteredData);
-    console.log({ ratings });
-  }, [ratings]);
+  // useEffect(() => {
+  //   const filteredData = places.filter((place) => place.rating > ratings);
+  //   setFilteredPlaces(filteredData);
+  //   console.log({ ratings });
+  // }, [ratings]);
 
-  // updates the data to the users choice of category or location 
-  useEffect(() => {
-    setIsLoading(true);
+  // // updates the data to the users choice of category or location 
+  // useEffect(() => {
+  //   setIsLoading(true);
     
-    getPlacesData(type, bounds?.sw, bounds?.ne).then((data) => {
-      console.log(data);
-      setPlaces(data);
-      setIsLoading(false);
-    });
-  }, [type, coordinates, bounds]);
+  //   getPlacesData(type, bounds?.sw, bounds?.ne).then((data) => {
+  //     console.log(data);
+  //     setPlaces(data);  
+  //     setIsLoading(false);
+  //   });
+  // }, [type, coordinates, bounds]);
 
   return (
     <Flex
