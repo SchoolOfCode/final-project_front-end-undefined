@@ -1,4 +1,5 @@
-{
+[
+  {
     "location_id": "19692076",
     "name": "A Capela",
     "latitude": "43.30282",
@@ -57,3 +58,4 @@
     "dietary_restrictions": [],
     "type": "restaurants"
   }
+]
