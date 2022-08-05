@@ -1,97 +1,203 @@
-import { Box, Image, Badge } from "@chakra-ui/react";
-import Map from './Map':
+import React, { useState } from "react";
+import { Box, Image, Spacer, Text, Flex } from "@chakra-ui/react";
 import { Rating } from "@material-ui/lab";
-import SignLanguageIcon from "@mui/icons-material/SignLanguage";
-import HearingIcon from "@mui/icons-material/Hearing";
+
+//Icon imports:
 import AccessibleIcon from "@mui/icons-material/Accessible";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import { Button } from "@chakra-ui/react";
-import { useDisclosure } from "@chakra-ui/react";
-import ReadMoreIcon from "@mui/icons-material/ReadMore";
-import ExpandCircleDownIcon from "@mui/icons-material/ExpandCircleDown";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-} from "@chakra-ui/react";
+import HearingIcon from "@mui/icons-material/Hearing";
+import PsychologyIcon from "@mui/icons-material/Psychology";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
-function LargeCard(props) {
-  const property = {
-    // imageUrl: "https://bit.ly/2Z4KKcF",
-    // imageAlt: "Rear view of modern home with pool",
-    // title: "Cineworld",
-    // category: "Cinema",
-    // address: "55 Bluewater Road, Manchester, M25 6HB",
-    // telephoneNumber: "02813849583",
-    // website: "www.cineworld.com",
-    // openingTime: "9:00 - 21:00",
-    // rating: 4,
-  };
-  const { isOpen, onOpen, onClose } = useDisclosure();
+const LargeCard = ({ cardData }) => {
   return (
-    <>
-      <Button
-        bgGradient="linear(to-r, #17CEDA, #032396)"
-        rounded="full"
-        _hover={"linear(to-r, blue.200, purple.500)"}
-        leftIcon={<ReadMoreIcon />}
-        color="white"
-        width="5%"
-        onClick={onOpen}
-      >
-        View more{" "}
-      </Button>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent height="500px" maxH="500px" maxW="250px">
-          <Image rounded="lg" src={property.imageUrl} alt={property.imageAlt} />
-          <ModalCloseButton
-            size="sm"
-            position="absolute"
-            bg={`#FF9100`}
-            colorScheme="white"
-            color="white"
-            borderColor="white"
-            border-radius={`5%`}
-            // z-index= '20'
-            right="1"
-            top="1"
-          />
+    <Box
+      bg="white"
+      height="550px"
+      width="250px"
+      position={"absolute"}
+      top={"-25vh"}
+      left={"-25vw"}
+      bottom="50px"
+      borderRadius="15"
+    >
+      {/* Chakra Image component to display place Image on small card */}
+      <Image
+        objectFit={"cover"}
+        width={"full"}
+        height={"120px"}
+        rounded="lg"
+        src={cardData.photo}
+      />
 
-          <ModalBody
-            color="gray.500"
-            fontWeight="semibold"
-            letterSpacing="wide"
-            fontSize="md"
-            ml="2"
-          >
-            {property.title}
-            <br></br>
-            {property.category}
-            <br></br>
-            <Rating size="small" value={Number(property.rating)} readOnly />
-            <br></br>
-            {property.telephoneNumber}
-            <br></br>
-            {property.website}
-            <br></br>
-            {property.openingTime}
-            <br></br>
-            <br></br>
-            <SignLanguageIcon fontSize="large" />
-            <HearingIcon fontSize="large" />
-            <RemoveRedEyeIcon fontSize="large" />
-            <AccessibleIcon fontSize="large" />
-          </ModalBody>
-          <ModalFooter></ModalFooter>
-        </ModalContent>
-      </Modal>
-    </>
+      {/* Chakra Text component to display place name details on small card */}
+      <Box padding="3">
+        <Text
+          textTransform={"capitalize"}
+          width={"full"}
+          fontSize={"22px"}
+          fontWeight={"500"}
+          isTruncated
+          color={"#2C2C68"}
+        >
+          {cardData.name}
+        </Text>
+        <Text
+          textTransform={"capitalize"}
+          fontSize={"18px"}
+          fontWeight={"500"}
+          isTruncated
+          color={"#2C2C68"}
+        >
+          {cardData.category}
+        </Text>
+        <Text
+          textTransform={"capitalize"}
+          width={"full"}
+          fontSize={"12px"}
+          fontWeight={"500"}
+          isTruncated
+          color={"#2C2C68"}
+        >
+          <Rating size="small" value={Number(cardData.rating)} readOnly />
+        </Text>
+        <Spacer />
+        <Text
+          textTransform={"capitalize"}
+          width={"full"}
+          fontSize={"14px"}
+          fontWeight={"500"}
+          isTruncated
+          color={"#2C2C68"}
+        >
+          {cardData.address}
+        </Text>
+        <br></br>
+        <Text
+          textTransform={"capitalize"}
+          width={"full"}
+          fontSize={"14px"}
+          fontWeight={"500"}
+          isTruncated
+          color={"#2C2C68"}
+        >
+          {cardData.phone_number}
+        </Text>
+        <Spacer />
+        <br></br>
+        <Text
+          width={"full"}
+          fontSize={"14px"}
+          fontWeight={"500"}
+          isTruncated
+          color={"#2C2C68"}
+        >
+          {cardData.web_address}
+        </Text>
+        <br></br>
+        <Text
+          textTransform={"capitalize"}
+          width={"full"}
+          fontSize={"14px"}
+          fontWeight={"500"}
+          isTruncated
+          color={"#2C2C68"}
+        >
+          {cardData.opening_times}
+        </Text>
+        <br></br>
+
+        <Flex
+          width="full"
+          // bg="red"
+          direction="column"
+          gap="3"
+          pt={"3"}
+        >
+          {cardData.acessibility?.accessible && (
+            <Flex
+              alignItems={"center"}
+              width={"full"}
+              px={1}
+              height={"25%"}
+              // bg="yellow"
+            >
+              <Text color={"#032396"}>
+                <AccessibleIcon fontSize="large" />
+              </Text>
+
+              <Text fontSize={"small"} fontWeight={500} color={"#2C2C68"}>
+                This place is wheelchair accesible
+              </Text>
+            </Flex>
+          )}
+          {cardData.acessibility?.eye && (
+            <Flex
+              alignItems={"center"}
+              width={"full"}
+              px={1}
+              height={"25%"}
+              // bg="yellow"
+            >
+              <Text color={"#032396"}>
+                <VisibilityIcon fontSize="large" />
+              </Text>
+              <Text
+                fontSize={"small"}
+                fontWeight={500}
+                color={"#2C2C68"}
+                ml={1}
+              >
+                This place has adjustments for visual impairments
+              </Text>
+            </Flex>
+          )}
+          {cardData.acessibility?.hearing && (
+            <Flex
+              alignItems={"center"}
+              width={"full"}
+              px={1}
+              height={"25%"}
+              // bg="yellow"
+            >
+              <Text color={"#032396"}>
+                <HearingIcon fontSize="large" />
+              </Text>
+              <Text
+                fontSize={"small"}
+                fontWeight={500}
+                color={"#2C2C68"}
+                ml={1}
+              >
+                This place has adjustments for hearing impairments
+              </Text>
+            </Flex>
+          )}
+          {cardData.acessibility?.brain && (
+            <Flex
+              alignItems={"center"}
+              width={"full"}
+              px={1}
+              height={"25%"}
+              // bg="yellow"
+            >
+              {" "}
+              <Text color={"#032396"}>
+                <PsychologyIcon fontSize="large" />
+              </Text>
+              <Text
+                fontSize={"small"}
+                fontWeight={500}
+                color={"#2C2C68"}
+                ml={1}
+              >
+                This place has a quiet space
+              </Text>
+            </Flex>
+          )}
+        </Flex>
+      </Box>
+    </Box>
   );
-}
+};
 
 export default LargeCard;

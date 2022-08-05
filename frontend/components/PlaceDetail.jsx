@@ -11,21 +11,18 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 const PlaceDetail = ({ place }) => {
   return (
     <Flex
-     marginTop="15px"
+      marginTop="15px"
       bg={"whiteAlpha.900"}
       px={4}
       py={2}
       mb={2}
       shadow="lg"
-      direction={"column"}
       alignItems={"left"}
       direction="row"
+      maxWidth={"500px"}
     >
       <Flex direction="column">
-        <Flex
-          alignItems={"center"}
-          width={"full"}
-        >
+        <Flex alignItems={"center"} width={"full"}>
           <Text
             textTransform={"capitalize"}
             width={"100%"}
@@ -55,11 +52,17 @@ const PlaceDetail = ({ place }) => {
 
         <Flex width="full">
           {place.acessibility?.accessible && (
-            <Flex alignItems={"center"} width={"20%"} px={1} my={2} height={"10px"}>
+            <Flex
+              alignItems={"center"}
+              width={"20%"}
+              px={1}
+              my={2}
+              height={"10px"}
+            >
               <Text
                 fontSize={"small"}
                 fontWeight={500}
-                color={"#2C2C68"}
+                color={"#032396"}
                 ml={1}
               >
                 <AccessibleIcon fontSize="large" />
@@ -67,11 +70,17 @@ const PlaceDetail = ({ place }) => {
             </Flex>
           )}
           {place.acessibility?.eye && (
-            <Flex alignItems={"center"} width={"20%"} px={1} my={2} height={"10px"}>
+            <Flex
+              alignItems={"center"}
+              width={"20%"}
+              px={1}
+              my={2}
+              height={"10px"}
+            >
               <Text
                 fontSize={"small"}
                 fontWeight={500}
-                color={"#2C2C68"}
+                color={"#032396"}
                 ml={1}
               >
                 <VisibilityIcon fontSize="large" />
@@ -79,11 +88,17 @@ const PlaceDetail = ({ place }) => {
             </Flex>
           )}
           {place.acessibility?.hearing && (
-            <Flex alignItems={"center"} width={"20%"} px={1} my={2} height={"10px"}>
+            <Flex
+              alignItems={"center"}
+              width={"20%"}
+              px={1}
+              my={2}
+              height={"10px"}
+            >
               <Text
                 fontSize={"small"}
                 fontWeight={500}
-                color={"#2C2C68"}
+                color={"#032396"}
                 ml={1}
               >
                 <HearingIcon fontSize="large" />
@@ -91,11 +106,17 @@ const PlaceDetail = ({ place }) => {
             </Flex>
           )}
           {place.acessibility?.brain && (
-            <Flex alignItems={"center"} width={"20%"} px={1} my={2} height={"10px"}>
+            <Flex
+              alignItems={"center"}
+              width={"20%"}
+              px={1}
+              my={2}
+              height={"10px"}
+            >
               <Text
                 fontSize={"small"}
                 fontWeight={500}
-                color={"#2C2C68"}
+                color={"#032396"}
                 ml={1}
               >
                 <PsychologyIcon fontSize="large" />
@@ -139,19 +160,19 @@ export default PlaceDetail;
   /* We may use this as behaviour for rendering accesibility badges */
 }
 {
-  /* {place?.dietary_restrictions && (
-            <Flex width={"full"} flexWrap={"wrap"}>
-              {place.dietary_restrictions.map((n, i) => (
-                <Badge
-                  colorScheme={"teal"}
-                  cursor={"pointer"}
-                  key={i}
-                  m={1}
-                  fontSize={10}
-                >
-                  {n.name}
-                </Badge>
-              ))}
-            </Flex>
-          )} */
+  // {place?.dietary_restrictions && (
+  //           <Flex width={"full"} flexWrap={"wrap"}>
+  //             {place.dietary_restrictions.map((n, i) => (
+  //               <Badge
+  //                 colorScheme={"teal"}
+  //                 cursor={"pointer"}
+  //                 key={i}
+  //                 m={1}
+  //                 fontSize={10}
+  //               >
+  //                 {n.name}
+  //               </Badge>
+  //             ))}
+  //           </Flex>
+  //         )}
 }

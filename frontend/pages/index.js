@@ -109,10 +109,6 @@ const [filteredCategory, setFilteredCategory] = useState([])
         setBounds={setBounds}
         places={filteredCategory.length ? filteredCategory : places}
       />
-
-      <LargeCard
-      
-      />
     </Flex>
   );
 };
