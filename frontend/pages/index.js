@@ -85,7 +85,12 @@ const [filteredCategory, setFilteredCategory] = useState([])
       maxHeight={"100vh"}
       position={"relative"}
     >
-      
+      <Map
+        setCoordinates={setCoordinates}
+        coordinates={coordinates}
+        setBounds={setBounds}
+        places={filteredCategory.length ? filteredCategory : places}
+      />
       <Head>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyD93tjfea30qHGkuhHJWQ0vQB9FF-HYIZo"></script>
       </Head>
@@ -103,12 +108,7 @@ const [filteredCategory, setFilteredCategory] = useState([])
         isLoading={isLoading}
       />
 
-      <Map
-        setCoordinates={setCoordinates}
-        coordinates={coordinates}
-        setBounds={setBounds}
-        places={filteredCategory.length ? filteredCategory : places}
-      />
+      
 
       <LargeCard
       
