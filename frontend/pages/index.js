@@ -8,30 +8,26 @@ import { getPlacesData } from "./api/getPlacesData";
 import Head from "next/head";
 import LargeCard from "../components/LargeCard";
 
-
 //👇 Comment out if using API. Uncomment if using offline database.
 import { places } from "../libs/offlineData.js";
 
-
-
-
 const Home = () => {
   //👇 Comment out if using offline database. Uncomment if using API
-// const [places, setPlaces] = useState({});
-const [filteredCategory, setFilteredCategory] = useState([])
-const [searchStatus, setSearchStatus] = useState(false)
+  // const [places, setPlaces] = useState({});
+  // const [filteredPlaces, setfilteredPlaces] = useState([]);
+  const [searchStatus, setSearchStatus] = useState(false);
   const [filteredPlaces, setFilteredPlaces] = useState([]);
   const [coordinates, setCoordinates] = useState({});
   const [bounds, setBounds] = useState(null);
-  const [category, setCategory] = useState('')
-  const [accessibility, setAccessibility] = useState('')  
-  
-   const [type, setType] = useState("restaurants");
+  const [category, setCategory] = useState("");
+  const [accessibility, setAccessibility] = useState("");
+
+  const [type, setType] = useState("restaurants");
   const [ratings, setRatings] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   // setPlaces(places)
 
-  const [accessibilityFilter, setaccessibilityFilter] = useState({})
+  const [accessibilityFilter, setaccessibilityFilter] = useState({});
 
   //👇 Comment out if using API. Uncomment if using offline database.
 
@@ -46,11 +42,16 @@ const [searchStatus, setSearchStatus] = useState(false)
   }, []);
 
   // updates the data to the users choice of rating
-  // useEffect(() => {
-  //   const filteredData = places.filter((place) => place.rating > ratings);
-  //   setFilteredPlaces(filteredData);
-  //   console.log({ ratings });
-  // }, [ratings]);
+  useEffect(() => {
+    const filteredData = places.filter(
+      (place) => place.rating > ratings && place.category == category
+    );
+    setFilteredPlaces(filteredData);
+    console.log(`currently selected ratings: ${ratings}`);
+    console.log(`currently selected category: ${category}`);
+    console.dir(filteredPlaces);
+    console.log(`this is filteredPlaces.length: ${filteredPlaces.length}`);
+  }, [ratings, category]);
 
   // useEffect(() => {
   //   const userChoice = places.filter((place) => place.category === category);
@@ -58,65 +59,62 @@ const [searchStatus, setSearchStatus] = useState(false)
   // }, [category]);
 
   // useEffect(() => {
-  //   const filteredCategory = places.filter((place) => place.category === category);
-  //   setFilteredCategory(filteredCategory)
-  //   console.log(filteredCategory)
+  //   const filteredPlaces = places.filter((place) => place.category === category);
+  //   setfilteredPlaces(filteredPlaces)
+  //   console.log(filteredPlaces)
   // }, [category]);
 
   // useEffect(() => {
 
   //   //re-render map
   // }, [places]);
-  
-  useEffect(() => {
-    console.log(places.accessibility?.accessible)
-    let filteredCategory = [];
-    let filteredAccessibility = [];
-    let filteredRatings = []
-    let finalFilter = []
-    if (category !== '') {
-       filteredCategory =  places.filter((place) => place.category === category)
-    }
-    let accessibleObject = {}
-if (accessibility !== '') {
-  switch(accessibility) {
-    case 'Mobility':
-      accessibleObject = {accessible: true}
-    break;
-    case 'Hearing':
-      accessibleObject =  {hearing: true}
-      break;
-    case 'Vision':
-      accessibleObject =  {eye: true}
-        break;
-    case 'Neurodivergent':
-      accessibleObject =  {brain: true}
-      break;
-    default:
-      console.log('default select case...')
-      // code block
-  }
 
-  filteredAccessibility = places.filter((place) => place.acessibility === accessibleObject);
-}
-if (ratings !== ''){
-  filteredRatings = places.filter((place) => place.rating > ratings)
-}
+  //   useEffect(() => {
+  //     console.log(places.accessibility?.accessible)
+  //     let filteredPlaces = [];
+  //     let filteredAccessibility = [];
+  //     let filteredRatings = []
+  //     let finalFilter = []
+  //     if (category !== '') {
+  //        filteredPlaces =  places.filter((place) => place.category === category)
+  //     }
+  //     let accessibleObject = {}
+  // if (accessibility !== '') {
+  //   switch(accessibility) {
+  //     case 'Mobility':
+  //       accessibleObject = {accessible: true}
+  //     break;
+  //     case 'Hearing':
+  //       accessibleObject =  {hearing: true}
+  //       break;
+  //     case 'Vision':
+  //       accessibleObject =  {eye: true}
+  //         break;
+  //     case 'Neurodivergent':
+  //       accessibleObject =  {brain: true}
+  //       break;
+  //     default:
+  //       console.log('default select case...')
+  //       // code block
+  //   }
 
-finalFilter = [...filteredCategory, ...filteredAccessibility, ...filteredRatings]
-    // const filteredCategory = places.filter((place) => place.category === category);
-    setFilteredCategory(finalFilter)
-    console.log(finalFilter)
-  }, [category, accessibility, ratings]);
+  //   filteredAccessibility = places.filter((place) => place.acessibility === accessibleObject);
+  // }
+  // if (ratings !== ''){
+  //   filteredRatings = places.filter((place) => place.rating > ratings)
+  // }
+
+  // finalFilter = [...filteredPlaces, ...filteredAccessibility, ...filteredRatings]
+  //     // const filteredPlaces = places.filter((place) => place.category === category);
+  //     setfilteredPlaces(finalFilter)
+  //     console.log(finalFilter)
+  //   }, [category, accessibility, ratings]);
 
   // let placeFilter = {
   //   category: category,
   //   accessibility: accessibility,
   //   rating: ratings
   // };
-
-
-
 
   // updates the data to the users choice of category or location
   // 👇 Comment out if using offline database. Uncomment if using the API
@@ -131,8 +129,6 @@ finalFilter = [...filteredCategory, ...filteredAccessibility, ...filteredRatings
   // }, [type, coordinates, bounds]);
 
   return (
-
-    
     <Flex
       justifyContent={"center"}
       alignItems={"center"}
@@ -142,7 +138,6 @@ finalFilter = [...filteredCategory, ...filteredAccessibility, ...filteredRatings
       maxHeight={"100vh"}
       position={"relative"}
     >
-      
       <Head>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyD93tjfea30qHGkuhHJWQ0vQB9FF-HYIZo" async></script>
       </Head>
@@ -153,13 +148,13 @@ finalFilter = [...filteredCategory, ...filteredAccessibility, ...filteredRatings
         setCoordinates={setCoordinates}
         setCategory={setCategory}
         setAccessibility={setAccessibility}
-        setRatings={setRatings}
         setSearchStatus={setSearchStatus}
         searchStatus={searchStatus}
       />
 
       <List
-        places={filteredCategory.length ? filteredCategory : places}
+        // places={filteredPlaces.length ? filteredPlaces : places}
+        places={filteredPlaces}
         isLoading={isLoading}
       />
 
@@ -167,7 +162,8 @@ finalFilter = [...filteredCategory, ...filteredAccessibility, ...filteredRatings
         setCoordinates={setCoordinates}
         coordinates={coordinates}
         setBounds={setBounds}
-        places={filteredCategory.length ? filteredCategory : places}
+        // places={filteredPlaces.length ? filteredPlaces : places}
+        places={filteredPlaces}
       />
     </Flex>
   );

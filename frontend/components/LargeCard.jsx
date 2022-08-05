@@ -22,6 +22,7 @@ const LargeCard = ({ cardData }) => {
     >
       {/* Chakra Image component to display place Image on small card */}
       <Image
+        alt={"Display Place"}
         objectFit={"cover"}
         width={"full"}
         height={"120px"}

@@ -17,11 +17,18 @@ import { TriangleDownIcon, Search2Icon } from "@chakra-ui/icons";
 import OurButton from "./OurButton";
 import { Select } from "@chakra-ui/react";
 
-const Search = ({  setCoordinates, setCategory, setAccessibility, setRatings, setSearchStatus, searchStatus }) => {
+const Search = ({
+  setCoordinates,
+  setCategory,
+  setAccessibility,
+  setRatings,
+  setSearchStatus,
+  searchStatus,
+}) => {
   const [autocomplete, setAutocomplete] = useState(null);
-  const [categoryText, setCategoryText] = useState('What?')
-  const [ratingText, setRatingText] = useState('Rating')
-  const [accessibilityText, setAccessibilityText] = useState('Accessibility')
+  const [categoryText, setCategoryText] = useState("What?");
+  const [ratingText, setRatingText] = useState("Rating");
+  const [accessibilityText, setAccessibilityText] = useState("Accessibility");
 
   const onLoad = (autoC) => setAutocomplete(autoC);
 
@@ -32,28 +39,27 @@ const Search = ({  setCoordinates, setCategory, setAccessibility, setRatings, se
   };
 
   //This function, categoryChanges(restaurant) replaces the onChange
-  function categoryChanges(cat){
-    console.log(cat)
-    setCategory(cat)
-    setCategoryText(cat)
+  function categoryChanges(cat) {
+    console.log(cat);
+    setCategory(cat);
+    setCategoryText(cat);
   }
 
+  function accessibilityChanges(accessibility) {
+    console.log(accessibility);
+    setAccessibility(accessibility);
+    setAccessibilityText(accessibility);
+  }
 
-function accessibilityChanges(accessibility){
-  console.log(accessibility)
-  setAccessibility(accessibility)
-  setAccessibilityText(accessibility)
-}
+  function ratingChanges(rate) {
+    console.log(rate);
+    setRatings(rate);
+    setRatingText(rate);
+  }
 
-function ratingChanges(rate){
-  console.log(rate)
-  setRatings(rate)
-  setRatingText(rate)
-}
-
-function searchFilter(){
-  setSearchStatus(!searchStatus)
-}
+  function searchFilter() {
+    setSearchStatus(!searchStatus);
+  }
   return (
     <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
       <InputGroup
@@ -192,7 +198,7 @@ function searchFilter(){
         </Select> */}
 
         {/* Venue category menu: */}
-         <Menu>
+        <Menu>
           <MenuButton
             color={`#2C2C68`}
             as={Button}
@@ -213,7 +219,7 @@ function searchFilter(){
             borderColor={`#FF9100`}
             textColor={"#2C2C68"}
           >
-            <MenuItem onClick={() => setRatingText('setRatingText')}>
+            <MenuItem onClick={() => categoryChanges("restaurant")}>
               Restaurant
             </MenuItem>
             <Center height="10px">
@@ -223,7 +229,7 @@ function searchFilter(){
                 width="90%"
               />
             </Center>
-            <MenuItem onClick={() => categoryChanges('gym')}>Gym</MenuItem>
+            <MenuItem onClick={() => categoryChanges("gym")}>Gym</MenuItem>
             <Center height="10px">
               <Divider
                 borderColor={`#FF9100`}
@@ -231,7 +237,9 @@ function searchFilter(){
                 width="90%"
               />
             </Center>
-            <MenuItem onClick={() => categoryChanges('cinema')}>Cinema</MenuItem>
+            <MenuItem onClick={() => categoryChanges("cinema")}>
+              Cinema
+            </MenuItem>
             <Center height="10px">
               <Divider
                 borderColor={`#FF9100`}
@@ -239,7 +247,7 @@ function searchFilter(){
                 width="90%"
               />
             </Center>
-            <MenuItem onClick={() => categoryChanges('shop')}>Shop</MenuItem>
+            <MenuItem onClick={() => categoryChanges("shop")}>Shop</MenuItem>
             <Center height="10px">
               <Divider
                 borderColor={`#FF9100`}
@@ -247,14 +255,14 @@ function searchFilter(){
                 width="90%"
               />
             </Center>
-            <MenuItem onClick={() => categoryChanges('cafe')}>Cafe</MenuItem>
+            <MenuItem onClick={() => categoryChanges("cafe")}>Cafe</MenuItem>
           </MenuList>
         </Menu>
         <Divider orientation="vertical" />
 
-{/* Rating filter menu */}
+        {/* Rating filter menu */}
 
-<Menu>
+        <Menu>
           <MenuButton
             color={`#2C2C68`}
             as={Button}
@@ -267,8 +275,7 @@ function searchFilter(){
             // basis="0"
             // grow="1"
           >
-             {ratingText}
-
+            {ratingText}
           </MenuButton>
           <MenuList
             rounded="lg"
@@ -284,9 +291,7 @@ function searchFilter(){
                 width="90%"
               />
             </Center>
-            <MenuItem onClick={() => ratingChanges("2")}>
-              2 Stars
-            </MenuItem>
+            <MenuItem onClick={() => ratingChanges("2")}>2 Stars</MenuItem>
             <Center height="10px">
               <Divider
                 borderColor={`#FF9100`}
@@ -312,9 +317,9 @@ function searchFilter(){
             </Center>
             <MenuItem onClick={() => ratingChanges("5")}>5 Stars</MenuItem>
           </MenuList>
-        </Menu>  
+        </Menu>
         {/* Accesibility filter menu: */}
-         {/* <Menu>
+        {/* <Menu>
           <MenuButton
             color={`#2C2C68`}
             as={Button}
@@ -366,7 +371,11 @@ function searchFilter(){
           </MenuList>
         </Menu>   */}
 
-        <OurButton onClick={searchFilter} text={"Search"} icon={<Search2Icon />} />
+        <OurButton
+          onClick={searchFilter}
+          text={"Search"}
+          icon={<Search2Icon />}
+        />
       </InputGroup>
     </Autocomplete>
   );

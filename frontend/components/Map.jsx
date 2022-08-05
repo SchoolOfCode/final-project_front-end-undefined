@@ -42,7 +42,7 @@ const Map = ({ coordinates, setCoordinates, setBounds, places, place }) => {
     
 
         {places?.map((place, i) => (
-          <Box
+          <Box key={i}
             lat={Number(place.latitude)}
             lng={Number(place.longitude)}
             position={"relative"}

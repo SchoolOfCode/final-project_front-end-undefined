@@ -1,6 +1,12 @@
 import React from "react";
 import PlaceDetail from "./PlaceDetail";
-import { Flex, Box, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
+import {
+  Text,
+  Flex,
+  Box,
+  SkeletonCircle,
+  SkeletonText,
+} from "@chakra-ui/react";
 
 const List = ({ places, isLoading }) => {
   if (isLoading)
@@ -52,8 +58,14 @@ const List = ({ places, isLoading }) => {
       px={2}
     >
       <Flex flex={1} overflowY={"scroll"} mt={16} direction={"column"}>
-        {places &&
-          places.map((place, i) => <PlaceDetail place={place} key={i} />)}
+        {places.length ? (
+          places &&
+          places.map((place, i) => <PlaceDetail place={place} key={i} />)
+        ) : (
+          <Text fontSize="38px" justify="center">
+            No places match your search :(
+          </Text>
+        )}
       </Flex>
     </Flex>
   );
