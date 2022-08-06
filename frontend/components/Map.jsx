@@ -39,7 +39,7 @@ const Map = ({ coordinates, setCoordinates, setBounds, places, place }) => {
           setIsCard(false);
         }}
       >
-    
+    //branch 
 
         {places?.map((place, i) => (
           <Box
