@@ -121,4 +121,6 @@ export const places = [
 -phone number ✅
 -web address ✅
 -opening times ✅
--picture ✅ */
+-picture ✅ 
+Data change
+*/
