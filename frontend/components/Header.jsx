@@ -1,7 +1,6 @@
 import { Flex, Spacer, Text, GridItem, Grid } from "@chakra-ui/react";
 import { useState } from "react";
 import Search from "./Search";
-import Logo from './Logo';
 
 
 const Header = ({setCategory, setCoordinates, setAccessibility, setRatings, setSearchStatus, searchStatus}) => {
@@ -21,7 +20,6 @@ const Header = ({setCategory, setCoordinates, setAccessibility, setRatings, setS
     <Grid templateColumns='repeat(3, 1fr)' gap={1}>
       {/* <Flex className="logo-name-container" bgColor={"red"}> */}
       <GridItem w='100%' h='10'>
-       <Logo /> 
        </GridItem> 
         <GridItem w='100%' h='10'>
       {/* </Flex> */}
