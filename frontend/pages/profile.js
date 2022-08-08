@@ -1,6 +1,6 @@
 import React from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
-
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 
 export default function Profile() {
 
@@ -26,4 +26,4 @@ export default function Profile() {
     return <a href="/api/auth/login">Login</a>
 }
 
-
+export const getServerSideProps = withPageAuthRequired();

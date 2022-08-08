@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import List from "../components/List";
 import Map from "../components/Map";
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 
 
 //👇 Comment out if using offline database. Uncomment if using API
@@ -117,3 +118,5 @@ const Home = () => {
 };
 
 export default Home;
+
+export const getServerSideProps = withPageAuthRequired();
