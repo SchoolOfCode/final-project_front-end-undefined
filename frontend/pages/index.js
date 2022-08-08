@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import List from "../components/List";
 import Map from "../components/Map";
-import { useUser } from '@auth0/nextjs-auth0';
+
 
 //👇 Comment out if using offline database. Uncomment if using API
 // import { getPlacesData } from "./api/getPlacesData";
@@ -14,10 +14,6 @@ import Head from "next/head";
 import { places } from "../libs/offlineData.js";
 
 const Home = () => {
-
-  const { user, error, isLoading } = useUser();
-
-  console.log(user)
   //👇 Comment out if using offline database. Uncomment if using API
   // const [places, setPlaces] = useState({});
 
@@ -107,7 +103,7 @@ const Home = () => {
         setCategory={setCategory}
       />
 
-      <List places={filteredPlaces} isLoading={isLoading} />
+      <List places={filteredPlaces} />
 
       <Map
         setCoordinates={setCoordinates}
