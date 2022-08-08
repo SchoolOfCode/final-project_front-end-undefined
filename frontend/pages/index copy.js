@@ -11,7 +11,6 @@ import LargeCard from "../components/LargeCard";
 //👇 Comment out if using API. Uncomment if using offline database.
 import { places } from "../libs/offlineData.js";
 
-
 const Home = () => {
   //👇 Comment out if using offline database. Uncomment if using API
   // const [places, setPlaces] = useState({});
@@ -73,8 +72,82 @@ const Home = () => {
     console.log(`this is filteredPlaces.length: ${filteredPlaces.length}`);
   }, [ratings, category]);
 
-  return (
+  // useEffect(() => {
+  //   const userChoice = places.filter((place) => place.category === category);
+  //   console.log(userChoice);
+  // }, [category]);
 
+  // useEffect(() => {
+  //   const filteredPlaces = places.filter((place) => place.category === category);
+  //   setfilteredPlaces(filteredPlaces)
+  //   console.log(filteredPlaces)
+  // }, [category]);
+
+  // useEffect(() => {
+
+  //   //re-render map
+  // }, [places]);
+
+  //   useEffect(() => {
+  //     console.log(places.accessibility?.accessible)
+  //     let filteredPlaces = [];
+  //     let filteredAccessibility = [];
+  //     let filteredRatings = []
+  //     let finalFilter = []
+  //     if (category !== '') {
+  //        filteredPlaces =  places.filter((place) => place.category === category)
+  //     }
+  //     let accessibleObject = {}
+  // if (accessibility !== '') {
+  //   switch(accessibility) {
+  //     case 'Mobility':
+  //       accessibleObject = {accessible: true}
+  //     break;
+  //     case 'Hearing':
+  //       accessibleObject =  {hearing: true}
+  //       break;
+  //     case 'Vision':
+  //       accessibleObject =  {eye: true}
+  //         break;
+  //     case 'Neurodivergent':
+  //       accessibleObject =  {brain: true}
+  //       break;
+  //     default:
+  //       console.log('default select case...')
+  //       // code block
+  //   }
+
+  //   filteredAccessibility = places.filter((place) => place.acessibility === accessibleObject);
+  // }
+  // if (ratings !== ''){
+  //   filteredRatings = places.filter((place) => place.rating > ratings)
+  // }
+
+  // finalFilter = [...filteredPlaces, ...filteredAccessibility, ...filteredRatings]
+  //     // const filteredPlaces = places.filter((place) => place.category === category);
+  //     setfilteredPlaces(finalFilter)
+  //     console.log(finalFilter)
+  //   }, [category, accessibility, ratings]);
+
+  // let placeFilter = {
+  //   category: category,
+  //   accessibility: accessibility,
+  //   rating: ratings
+  // };
+
+  // updates the data to the users choice of category or location
+  // 👇 Comment out if using offline database. Uncomment if using the API
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   getPlacesData(type, bounds?.sw, bounds?.ne).then((data) => {
+  //     console.log(`This is data: ${data}`);
+  //     console.dir(data);
+  //     setPlaces(data);
+  //     setIsLoading(false);
+  //   });
+  // }, [type, coordinates, bounds]);
+
+  return (
     <Flex
       justifyContent={"center"}
       alignItems={"center"}
@@ -101,23 +174,19 @@ const Home = () => {
         searchStatus={searchStatus}
       />
 
-      {searchStatus&&<List
+      <List
         // places={filteredPlaces.length ? filteredPlaces : places}
         places={filteredPlaces}
         isLoading={isLoading}
-      />}
+      />
 
-      {searchStatus&&<Map
+      <Map
         setCoordinates={setCoordinates}
         coordinates={coordinates}
         setBounds={setBounds}
         // places={filteredPlaces.length ? filteredPlaces : places}
         places={filteredPlaces}
-      />}
-  
-
-
-
+      />
     </Flex>
   );
 };

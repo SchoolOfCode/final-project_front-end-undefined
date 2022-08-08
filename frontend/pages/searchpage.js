@@ -1,3 +1,5 @@
+// This page needs to have access to ALL states inside index.js
+
 import { Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
@@ -11,8 +13,7 @@ import LargeCard from "../components/LargeCard";
 //👇 Comment out if using API. Uncomment if using offline database.
 import { places } from "../libs/offlineData.js";
 
-
-const Home = () => {
+const SearchPage = () => {
   //👇 Comment out if using offline database. Uncomment if using API
   // const [places, setPlaces] = useState({});
   // const [filteredPlaces, setfilteredPlaces] = useState([]);
@@ -73,8 +74,9 @@ const Home = () => {
     console.log(`this is filteredPlaces.length: ${filteredPlaces.length}`);
   }, [ratings, category]);
 
-  return (
 
+
+  return (
     <Flex
       justifyContent={"center"}
       alignItems={"center"}
@@ -101,25 +103,21 @@ const Home = () => {
         searchStatus={searchStatus}
       />
 
-      {searchStatus&&<List
+      <List
         // places={filteredPlaces.length ? filteredPlaces : places}
         places={filteredPlaces}
         isLoading={isLoading}
-      />}
+      />
 
-      {searchStatus&&<Map
+      <Map
         setCoordinates={setCoordinates}
         coordinates={coordinates}
         setBounds={setBounds}
         // places={filteredPlaces.length ? filteredPlaces : places}
         places={filteredPlaces}
-      />}
-  
-
-
-
+      />
     </Flex>
   );
 };
 
-export default Home;
+export default SearchPage

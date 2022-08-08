@@ -24,6 +24,7 @@ const Search = ({
   setRatings,
   setSearchStatus,
   searchStatus,
+  onClick
 }) => {
   const [autocomplete, setAutocomplete] = useState(null);
   const [categoryText, setCategoryText] = useState("What?");
@@ -57,8 +58,9 @@ const Search = ({
     setRatingText(rate);
   }
 
-  function searchFilter() {
+  function searchFunction() {
     setSearchStatus(!searchStatus);
+    console.log('yooo this is search status', searchStatus)
   }
   return (
     <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
@@ -372,10 +374,11 @@ const Search = ({
         </Menu>   */}
 
         <OurButton
-          onClick={searchFilter}
+          onClick={searchFunction}
           text={"Search"}
           icon={<Search2Icon />}
         />
+        {/* <button onClick={searchFunction}>This is the NEWWWW button</button> */}
       </InputGroup>
     </Autocomplete>
   );
