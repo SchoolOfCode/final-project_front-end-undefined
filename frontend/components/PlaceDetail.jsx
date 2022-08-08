@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Text, Image, Badge } from "@chakra-ui/react";
+import { Flex, Text, Image, Spacer } from "@chakra-ui/react";
 import { Rating } from "@material-ui/lab";
 import { IoLocation } from "react-icons/io5";
 import SignLanguageIcon from "@mui/icons-material/SignLanguage";
@@ -8,7 +8,7 @@ import AccessibleIcon from "@mui/icons-material/Accessible";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 
-const PlaceDetail = ({ place }) => {
+const PlaceDetail = ({ place, setCardData, setIsCard }) => {
   return (
     <Flex
       marginTop="15px"
@@ -20,6 +20,7 @@ const PlaceDetail = ({ place }) => {
       alignItems={"left"}
       direction="row"
       maxWidth={"500px"}
+      distribute="space-between"
     >
       <Flex direction="column">
         <Flex alignItems={"center"} width={"full"}>
@@ -125,6 +126,7 @@ const PlaceDetail = ({ place }) => {
           )}
         </Flex>
       </Flex>
+      <Spacer />
       <Image
         marginTop={"10px"}
         objectFit={"cover"}
