@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import List from "../components/List";
 import Map from "../components/Map";
+import { useUser } from '@auth0/nextjs-auth0';
 
 //👇 Comment out if using offline database. Uncomment if using API
 // import { getPlacesData } from "./api/getPlacesData";
@@ -13,6 +14,10 @@ import Head from "next/head";
 import { places } from "../libs/offlineData.js";
 
 const Home = () => {
+
+  const { user, error, isLoading } = useUser();
+
+  console.log(user)
   //👇 Comment out if using offline database. Uncomment if using API
   // const [places, setPlaces] = useState({});
 
@@ -28,7 +33,7 @@ const Home = () => {
 
   // This is not used, unless this is used in conjunction with API. It is not useful without that. 
 
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   //👇 Comment out if using API. Uncomment if using offline database. ❗What was here and where did it go?
 
