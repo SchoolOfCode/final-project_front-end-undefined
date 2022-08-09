@@ -17,10 +17,8 @@ import { TriangleDownIcon, Search2Icon } from "@chakra-ui/icons";
 import OurButton from "./OurButton";
 import { Select, Box } from "@chakra-ui/react";
 import Image from "next/image";
-import logo from "../public/logo.png"
+import logo from "../public/logo.png";
 import { display } from "@mui/system";
-import Logo from "./Logo";
-
 
 const Search = ({
   setCoordinates,
@@ -29,13 +27,12 @@ const Search = ({
   setRatings,
   setSearchStatus,
   searchStatus,
-  onClick
+  onClick,
 }) => {
   const [autocomplete, setAutocomplete] = useState(null);
   const [categoryText, setCategoryText] = useState("What?");
   const [ratingText, setRatingText] = useState("Rating");
   const [accessibilityText, setAccessibilityText] = useState("Accessibility");
-
 
   const onLoad = (autoC) => setAutocomplete(autoC);
 
@@ -63,57 +60,52 @@ const Search = ({
     setRatings(rate);
     setRatingText(rate);
   }
- let smallSearch = false
-  let marginTop = "300px"
-  let imageDisplay = "display"
-  if (searchStatus){
-    marginTop="5px"
-    imageDisplay="none"
 
+  let marginTop = "300px";
+  let imageDisplay = "display";
+  if (searchStatus) {
+    marginTop = "5px";
+    imageDisplay = "none";
   }
 
   function searchFunction() {
     setSearchStatus(true);
-    
-   
-   
   }
- //new change 0000 
+  //new change 0000
   return (
     <div>
-    
-    <Box marginTop={marginTop}>
-   <Flex justify="centre" marginLeft="150px" display={imageDisplay}><Image src={logo} /></Flex>
-    <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
-      
-      <InputGroup
-        width={"50vw"}
-        minWidth="500px"
-        height={"90%"}
-        shadow="lg"
-        border="2px"
-        borderColor={`#FF9100`}
-        rounded="full"
-        padding="3px"
-        display="flex"
-        justify="center"
-        
-      >
-        <Input
-          type={"text"}
-          variant={"filled"}
-          fontSize={17}
-          fontWeight={"bold"}
-          placeholder="Where?"
-          bg={"white"}
-          color={"gray.700"}
-          _placeholder={{ color: `#2C2C68` }}
-          rounded="full"
-          width="32%"
-          // basis="0"
-          // grow="1"
-        />
-        {/* <Divider orientation="vertical" />
+      <Box marginTop={marginTop}>
+        <Flex justify="centre" marginLeft="150px" display={imageDisplay}>
+          <Image src={logo} />
+        </Flex>
+        <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
+          <InputGroup
+            width={"50vw"}
+            minWidth="500px"
+            height={"90%"}
+            shadow="lg"
+            border="2px"
+            borderColor={`#FF9100`}
+            rounded="full"
+            padding="3px"
+            display="flex"
+            justify="center"
+          >
+            <Input
+              type={"text"}
+              variant={"filled"}
+              fontSize={17}
+              fontWeight={"bold"}
+              placeholder="Where?"
+              bg={"white"}
+              color={"gray.700"}
+              _placeholder={{ color: `#2C2C68` }}
+              rounded="full"
+              width="32%"
+              // basis="0"
+              // grow="1"
+            />
+            {/* <Divider orientation="vertical" />
         <Select
           placeholder={"What?"}
           color={`#2C2C68`}
@@ -222,129 +214,133 @@ const Search = ({
           />
         </Select> */}
 
-        {/* Venue category menu: */}
-        <Menu>
-          <MenuButton
-            color={`#2C2C68`}
-            as={Button}
-            rounded="full"
-            bg={"white"}
-            rightIcon={<TriangleDownIcon color={`#FF9100`} />}
-            fontWeight={"bold"}
-            fontSize={17}
-            width="32%"
-            // basis="0"
-            // grow="1"
-          >
-            {categoryText}
-          </MenuButton>
-          <MenuList
-            rounded="lg"
-            border="2px"
-            borderColor={`#FF9100`}
-            textColor={"#2C2C68"}
-          >
-            <MenuItem onClick={() => categoryChanges("restaurant")}>
-              Restaurant
-            </MenuItem>
-            <Center height="10px">
-              <Divider
+            {/* Venue category menu: */}
+            <Menu>
+              <MenuButton
+                color={`#2C2C68`}
+                as={Button}
+                rounded="full"
+                bg={"white"}
+                rightIcon={<TriangleDownIcon color={`#FF9100`} />}
+                fontWeight={"bold"}
+                fontSize={17}
+                width="32%"
+                // basis="0"
+                // grow="1"
+              >
+                {categoryText}
+              </MenuButton>
+              <MenuList
+                rounded="lg"
+                border="2px"
                 borderColor={`#FF9100`}
-                orientation="horizontal"
-                width="90%"
-              />
-            </Center>
-            <MenuItem onClick={() => categoryChanges("gym")}>Gym</MenuItem>
-            <Center height="10px">
-              <Divider
-                borderColor={`#FF9100`}
-                orientation="horizontal"
-                width="90%"
-              />
-            </Center>
-            <MenuItem onClick={() => categoryChanges("cinema")}>
-              Cinema
-            </MenuItem>
-            <Center height="10px">
-              <Divider
-                borderColor={`#FF9100`}
-                orientation="horizontal"
-                width="90%"
-              />
-            </Center>
-            <MenuItem onClick={() => categoryChanges("shop")}>Shop</MenuItem>
-            <Center height="10px">
-              <Divider
-                borderColor={`#FF9100`}
-                orientation="horizontal"
-                width="90%"
-              />
-            </Center>
-            <MenuItem onClick={() => categoryChanges("cafe")}>Cafe</MenuItem>
-          </MenuList>
-        </Menu>
-        <Divider orientation="vertical" />
+                textColor={"#2C2C68"}
+              >
+                <MenuItem onClick={() => categoryChanges("restaurant")}>
+                  Restaurant
+                </MenuItem>
+                <Center height="10px">
+                  <Divider
+                    borderColor={`#FF9100`}
+                    orientation="horizontal"
+                    width="90%"
+                  />
+                </Center>
+                <MenuItem onClick={() => categoryChanges("gym")}>Gym</MenuItem>
+                <Center height="10px">
+                  <Divider
+                    borderColor={`#FF9100`}
+                    orientation="horizontal"
+                    width="90%"
+                  />
+                </Center>
+                <MenuItem onClick={() => categoryChanges("cinema")}>
+                  Cinema
+                </MenuItem>
+                <Center height="10px">
+                  <Divider
+                    borderColor={`#FF9100`}
+                    orientation="horizontal"
+                    width="90%"
+                  />
+                </Center>
+                <MenuItem onClick={() => categoryChanges("shop")}>
+                  Shop
+                </MenuItem>
+                <Center height="10px">
+                  <Divider
+                    borderColor={`#FF9100`}
+                    orientation="horizontal"
+                    width="90%"
+                  />
+                </Center>
+                <MenuItem onClick={() => categoryChanges("cafe")}>
+                  Cafe
+                </MenuItem>
+              </MenuList>
+            </Menu>
+            <Divider orientation="vertical" />
 
-        {/* Rating filter menu */}
+            {/* Rating filter menu */}
 
-        <Menu>
-          <MenuButton
-            color={`#2C2C68`}
-            as={Button}
-            rounded="full"
-            bg={"white"}
-            rightIcon={<TriangleDownIcon color={`#FF9100`} />}
-            fontWeight={"bold"}
-            fontSize={17}
-            width="32%"
-            // basis="0"
-            // grow="1"
-          >
-            {ratingText}
-          </MenuButton>
-          <MenuList
-            rounded="lg"
-            border="2px"
-            borderColor={`#FF9100`}
-            textColor={"#2C2C68"}
-          >
-            <MenuItem onClick={() => ratingChanges("1")}>1 Star</MenuItem>
-            <Center height="10px">
-              <Divider
+            <Menu>
+              <MenuButton
+                color={`#2C2C68`}
+                as={Button}
+                rounded="full"
+                bg={"white"}
+                rightIcon={<TriangleDownIcon color={`#FF9100`} />}
+                fontWeight={"bold"}
+                fontSize={17}
+                width="32%"
+                // basis="0"
+                // grow="1"
+              >
+                {ratingText}
+              </MenuButton>
+              <MenuList
+                rounded="lg"
+                border="2px"
                 borderColor={`#FF9100`}
-                orientation="horizontal"
-                width="90%"
-              />
-            </Center>
-            <MenuItem onClick={() => ratingChanges("2")}>2 Stars</MenuItem>
-            <Center height="10px">
-              <Divider
-                borderColor={`#FF9100`}
-                orientation="horizontal"
-                width="90%"
-              />
-            </Center>
-            <MenuItem onClick={() => ratingChanges("3")}>3 Stars</MenuItem>
-            <Center height="10px">
-              <Divider
-                borderColor={`#FF9100`}
-                orientation="horizontal"
-                width="90%"
-              />
-            </Center>
-            <MenuItem onClick={() => ratingChanges("4")}>4 Stars</MenuItem>
-            <Center height="10px">
-              <Divider
-                borderColor={`#FF9100`}
-                orientation="horizontal"
-                width="90%"
-              />
-            </Center>
-            <MenuItem onClick={() => ratingChanges("5")}>5 Stars</MenuItem>
-          </MenuList>
-        </Menu>
-        {/* Accesibility filter menu: */}
-        {/* <Menu>
+                textColor={"#2C2C68"}
+              >
+                <MenuItem onClick={() => ratingChanges("1")}>1 Star</MenuItem>
+                <Center height="10px">
+                  <Divider
+                    borderColor={`#FF9100`}
+                    orientation="horizontal"
+                    width="90%"
+                  />
+                </Center>
+                <MenuItem onClick={() => ratingChanges("2")}>2 Stars</MenuItem>
+                <Center height="10px">
+                  <Divider
+                    borderColor={`#FF9100`}
+                    orientation="horizontal"
+                    width="90%"
+                  />
+                </Center>
+                <MenuItem onClick={() => ratingChanges("3")}>3 Stars</MenuItem>
+                <Center height="10px">
+                  <Divider
+                    borderColor={`#FF9100`}
+                    orientation="horizontal"
+                    width="90%"
+                  />
+                </Center>
+                <MenuItem onClick={() => ratingChanges("4")}>4 Stars</MenuItem>
+                <Center height="10px">
+                  <Divider
+                    borderColor={`#FF9100`}
+                    orientation="horizontal"
+                    width="90%"
+                  />
+                </Center>
+                <MenuItem onClick={() => ratingChanges("5")}>5 Stars</MenuItem>
+              </MenuList>
+            </Menu>
+            {/* Accesibility filter menu: */}
+            {/* <Menu>
           <MenuButton
             color={`#2C2C68`}
             as={Button}
@@ -396,16 +392,15 @@ const Search = ({
           </MenuList>
         </Menu>   */}
 
-        <OurButton
-          onClick={searchFunction}
-          text={"Search"}
-          icon={<Search2Icon />}
-        />
-        {/* <button onClick={searchFunction}>This is the NEWWWW button</button> */}
-      </InputGroup>
-    </Autocomplete>
-    </Box>
-    {/* <Logo smallSearch={smallSearch}/> */}
+            <OurButton
+              onClick={searchFunction}
+              text={"Search"}
+              icon={<Search2Icon />}
+            />
+            {/* <button onClick={searchFunction}>This is the NEWWWW button</button> */}
+          </InputGroup>
+        </Autocomplete>
+      </Box>
     </div>
   );
 };
