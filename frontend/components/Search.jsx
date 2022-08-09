@@ -12,10 +12,15 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { Autocomplete } from "@react-google-maps/api";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TriangleDownIcon, Search2Icon } from "@chakra-ui/icons";
 import OurButton from "./OurButton";
-import { Select } from "@chakra-ui/react";
+import { Select, Box } from "@chakra-ui/react";
+import Image from "next/image";
+import logo from "../public/logo.png"
+import { display } from "@mui/system";
+import Logo from "./Logo";
+
 
 const Search = ({
   setCoordinates,
@@ -30,6 +35,7 @@ const Search = ({
   const [categoryText, setCategoryText] = useState("What?");
   const [ratingText, setRatingText] = useState("Rating");
   const [accessibilityText, setAccessibilityText] = useState("Accessibility");
+
 
   const onLoad = (autoC) => setAutocomplete(autoC);
 
@@ -57,13 +63,28 @@ const Search = ({
     setRatings(rate);
     setRatingText(rate);
   }
+ let smallSearch = false
+  let marginTop = "300px"
+  let imageDisplay = "display"
+  if (searchStatus){
+    marginTop="5px"
+    imageDisplay="none"
+
+  }
 
   function searchFunction() {
-    setSearchStatus(!searchStatus);
-    console.log('yooo this is search status', searchStatus)
+    setSearchStatus(true);
+    
+   
+   
   }
+ 
   return (
+    <div>
+    <Box marginTop={marginTop}>
+   <Flex justify="centre" marginLeft="150px" display={imageDisplay}><Image src={logo} /></Flex>
     <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
+      
       <InputGroup
         width={"50vw"}
         minWidth="500px"
@@ -75,6 +96,7 @@ const Search = ({
         padding="3px"
         display="flex"
         justify="center"
+        
       >
         <Input
           type={"text"}
@@ -381,6 +403,9 @@ const Search = ({
         {/* <button onClick={searchFunction}>This is the NEWWWW button</button> */}
       </InputGroup>
     </Autocomplete>
+    </Box>
+    {/* <Logo smallSearch={smallSearch}/> */}
+    </div>
   );
 };
 
