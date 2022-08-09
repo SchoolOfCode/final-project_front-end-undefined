@@ -78,9 +78,10 @@ const Search = ({
    
    
   }
- 
+ //new change
   return (
     <div>
+    
     <Box marginTop={marginTop}>
    <Flex justify="centre" marginLeft="150px" display={imageDisplay}><Image src={logo} /></Flex>
     <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
