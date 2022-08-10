@@ -1,34 +1,51 @@
-import { Switch, Stack, Box } from "@chakra-ui/react";
-;
+import {
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem,
+    MenuItemOption,
+    MenuGroup,
+    MenuOptionGroup,
+    MenuDivider,
+    Button,
+  } from '@chakra-ui/react'
+  import { PhoneIcon, AddIcon, WarningIcon, ChevronDownIcon } from '@chakra-ui/icons'
+  import Image from "next/image";
+  import worldmap from "../public/world-map.jpg";
 
 const MapStylesToggle = ({}) => {
   return (
-    <Box
-    as='button'
-    height='30px'
-    lineHeight='1.2'
-    transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
-    border='1px'
-    px='8px'
-    borderRadius='2px'
-    fontSize='14px'
-    fontWeight='semibold'
-    bg='#f5f6f7'
-    borderColor='#ccd0d5'
-    color='#4b4f56'
-    _hover={{ bg: '#ebedf0' }}
-    _active={{
-      bg: '#dddfe2',
-      transform: 'scale(0.98)',
-      borderColor: '#bec3c9',
-    }}
-    _focus={{
-      boxShadow:
-        '0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)',
-    }}
-  >
-    Join Group
-  </Box>
+    <Menu>
+    <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+      Your Cats
+    </MenuButton>
+    <MenuList>
+      <MenuItem minH='48px'>
+        <Image
+          boxSize='2rem'
+          borderRadius='full'
+          src= {worldmap}
+          alt='Fluffybuns the destroyer'
+          mr='12px'
+          width= "100px"
+          height= "100px"
+        />
+        <span>Fluffybuns the Destroyer</span>
+      </MenuItem>
+      <MenuItem minH='40px'>
+        <Image
+          boxSize='2rem'
+          borderRadius='full'
+          src= {worldmap}
+          alt='Simon the pensive'
+          mr='12px'
+          width= "100px"
+          height= "100px"
+        />
+        <span>Simon the pensive</span>
+      </MenuItem>
+    </MenuList>
+  </Menu>
     
   );
 };

@@ -12,8 +12,9 @@ const Map = ({
   setIsCard,
   cardData,
   setCardData,
-}) => {
-  return (
+  }) => {
+  const [mapStyle, SetMapStyle] = useState('../libs/map-default.json')
+    return (
     <Box width={"full"} height={"full"}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}
@@ -22,7 +23,7 @@ const Map = ({
         defaultZoom={10}
         margin={[50, 50, 50, 50]}
         options={{
-          styles: require("../libs/map-style1.json"),
+          styles: require({mapStyle}),
         }}
         //👇 This sets bounds within which the API pins are displayed. This is useful only if we use API. No use for this if we use our own data.
         //👇 Comment out if using offline database. Uncomment if using API
