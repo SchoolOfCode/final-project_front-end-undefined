@@ -1,6 +1,7 @@
 import { Flex, Spacer, GridItem, Grid } from "@chakra-ui/react";
 import Search from "./Search";
 import Logo from "./Logo";
+import MapStylesToggle from "./MapStylesToggle";
 
 const Header = ({
   setCategory,
@@ -36,7 +37,9 @@ const Header = ({
         <GridItem w="50%" h="10">
           <Spacer />
         </GridItem>
+      
       </Grid>
+      <MapStylesToggle />
     </Flex>
   );
 };
