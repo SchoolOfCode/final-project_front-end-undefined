@@ -32,22 +32,23 @@ const MapStylesToggle = ({}) => {
   const [mapStyle, SetMapStyle] = useContext(MapStyleContext);
    // SetMapStyle(`require('../libs/map-grayscale.json')`)
   return (
-    <Menu>
+    <>
     <Link href ='/About'>
-    <MenuButton
-        color={`#2C2C68`}
-        as={Button}
-        rounded="full"
-        bg={"white"}
-        fontWeight={"bold"}
-        fontSize={17}
-        width="240px"
-        border="2px"
-        borderColor={`#FF9100`}
+    <Button
+    // bgGradient="linear(to-r, #19f7fa, #1c8cfb)"
+    // _hover={{backgroundImage: "linear-gradient(to right, #fff500 , #ff9100)"}}
+      bgGradient="linear(to-r, #fff500, #ff9100)"
+      _hover={{backgroundImage: "linear-gradient(to right, #19f7fa , #1c8cfb)", color : "white"}}
+      fontWeight={"bold"}
+      color={`#2C2C68`}
+      width="120px"
+      rounded="full"
       >
         About
-      </MenuButton>
+      </Button>
       </Link>
+    <Menu>
+    
       <MenuButton
         color={`#2C2C68`}
         as={Button}
@@ -60,7 +61,7 @@ const MapStylesToggle = ({}) => {
         borderColor={`#FF9100`}
         rightIcon={<TriangleDownIcon color={`#FF9100`} />}
       >
-        Map Colour
+        Map Theme
       </MenuButton>
       <MenuList
         rounded="lg"
@@ -147,7 +148,9 @@ const MapStylesToggle = ({}) => {
         </MenuItem>
       </MenuList>
     </Menu>
+    </>
   );
+  
 };
 
 export default MapStylesToggle;
