@@ -10,6 +10,8 @@ import {
   Button,
   Divider,
   Text,
+  Spacer,
+  Flex
 } from "@chakra-ui/react";
 import {
   PhoneIcon,
@@ -32,11 +34,9 @@ const MapStylesToggle = ({}) => {
   const [mapStyle, SetMapStyle] = useContext(MapStyleContext);
    // SetMapStyle(`require('../libs/map-grayscale.json')`)
   return (
-    <>
+    <Flex width="600px"  align={"center"}>
     <Link href ='/About'>
     <Button
-    // bgGradient="linear(to-r, #19f7fa, #1c8cfb)"
-    // _hover={{backgroundImage: "linear-gradient(to right, #fff500 , #ff9100)"}}
       bgGradient="linear(to-r, #fff500, #ff9100)"
       _hover={{backgroundImage: "linear-gradient(to right, #19f7fa , #1c8cfb)", color : "white"}}
       fontWeight={"bold"}
@@ -47,6 +47,7 @@ const MapStylesToggle = ({}) => {
         About
       </Button>
       </Link>
+      <Spacer/>
     <Menu>
     
       <MenuButton
@@ -56,7 +57,7 @@ const MapStylesToggle = ({}) => {
         bg={"white"}
         fontWeight={"bold"}
         fontSize={17}
-        width="240px"
+        width="180px"
         border="2px"
         borderColor={`#FF9100`}
         rightIcon={<TriangleDownIcon color={`#FF9100`} />}
@@ -148,7 +149,7 @@ const MapStylesToggle = ({}) => {
         </MenuItem>
       </MenuList>
     </Menu>
-    </>
+    </Flex>
   );
   
 };

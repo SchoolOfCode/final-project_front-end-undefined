@@ -66,22 +66,24 @@ const Header = ({
             setSearchClick={setSearchClick}
             searchClick={searchClick}
           />
-        </GridItem>
+        </GridItem >
         {/* <Spacer bgColor={"blue"} /> */}
-        <GridItem w="50%" h="10">
+        {/* <GridItem w="50%" h="10">
           <Spacer />
-        </GridItem>
+        </GridItem> */}
         {/* <GridItem>
         <Link href='/About'>
         <button>
             About
           </button>
         </Link>
-        </GridItem> */}
-      </Grid>
-      {searchStatus && (
+     
+      
+        </GridItem> */} 
+        </Grid >
+        {searchStatus && (
       <MapStylesToggle />
-      )}
+      )} 
     </Flex>
   );
 };
