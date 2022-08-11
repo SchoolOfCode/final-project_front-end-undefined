@@ -33,6 +33,7 @@ const LargeCard = ({ cardData, setIsCard }) => {
         width={"30px"}
         height={"30px"}
         bgGradient="linear(to-tr, #17CEDA, #0954a9, #032396)" //this gradient works better on this small element than the gradient in OurButton
+        _hover={{backgroundImage: "linear-gradient(to right, #19f7fa , #1c8cfb)"}}
         rounded={"full"}
         display={"flex"}
         justifyContent={"center"}
