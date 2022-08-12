@@ -15,14 +15,6 @@ const Header = ({
   setSearchClick,
   searchClick,
 }) => {
-  // console.log(searchStatus,"better be false")
-  // let imageDisplay = "none";
-  // if (searchStatus) {
-  //   imageDisplay = "display";
-  // }
-
-  let imageDisplay;
-  searchStatus ? (imageDisplay = "display") : (imageDisplay = "none");
   return (
     <>
       <Flex
@@ -37,37 +29,25 @@ const Header = ({
         zIndex={101}
         bgColor={"white"}
       >
-        <Grid templateColumns="repeat(3, 1fr)" gap={1}>
-          <GridItem w="100%" h="10">
-            <Flex display={imageDisplay} cursor="pointer">
-              <Image
-                src={Logo}
-                alt={"logo"}
-                width={"150px"}
-                height={"50px"}
-                style={{ zIndex: 99 }}
-                onClick={() => setSearchStatus(false)}
-              />
-            </Flex>
-          </GridItem>
-          <GridItem w="100%" h="10">
-            <Search
-              setCoordinates={setCoordinates}
-              setCategory={setCategory}
-              setAccessibility={setAccessibility}
-              setRatings={setRatings}
-              setSearchStatus={setSearchStatus}
-              searchStatus={searchStatus}
-              setSearchClick={setSearchClick}
-              searchClick={searchClick}
-            />
-          </GridItem>
-
-          <GridItem w="50%" h="10">
-            <Spacer />
-          </GridItem>
-        </Grid>
-        {searchStatus && <MapStylesToggle />}
+        <Image
+          src={Logo}
+          alt={"logo"}
+          width={"150px"}
+          height={"50px"}
+          style={{ zIndex: 99 }}
+          onClick={() => setSearchStatus(false)}
+        />
+        <Search
+          setCoordinates={setCoordinates}
+          setCategory={setCategory}
+          setAccessibility={setAccessibility}
+          setRatings={setRatings}
+          setSearchStatus={setSearchStatus}
+          searchStatus={searchStatus}
+          setSearchClick={setSearchClick}
+          searchClick={searchClick}
+        />
+        <MapStylesToggle />
       </Flex>
     </>
   );

@@ -68,6 +68,9 @@ const Search = ({
   return (
     <div>
       <Box maringTop={marginTop} bg="red">
+        <Flex justify="centre" marginLeft="150px" display={imageDisplay}>
+          <Image src={logo} />
+        </Flex>
         <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
           <InputGroup
             width={"50vw"}
