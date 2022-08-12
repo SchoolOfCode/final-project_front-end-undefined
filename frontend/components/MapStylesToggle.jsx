@@ -11,7 +11,8 @@ import {
   Divider,
   Text,
   Spacer,
-  Flex
+  Flex,
+  Center,
 } from "@chakra-ui/react";
 import {
   PhoneIcon,
@@ -27,131 +28,130 @@ import highContrastMap from "../public/high-contrast.png";
 import React, { useState, useContext } from "react";
 // importing map style props
 import { MapStyleContext } from "./MapStyleContext";
-import Link from 'next/link';
+import Link from "next/link";
 
 const MapStylesToggle = ({}) => {
-   // importing mapStyle useState from our MapStyleContext which withold the styling information.
+  // importing mapStyle useState from our MapStyleContext which withold the styling information.
   const [mapStyle, SetMapStyle] = useContext(MapStyleContext);
-   // SetMapStyle(`require('../libs/map-grayscale.json')`)
+  // SetMapStyle(`require('../libs/map-grayscale.json')`)
   return (
-    <Flex width="600px"  align={"center"}>
-    <Link href ='/About'>
-    <Button
-      bgGradient="linear(to-r, #fff500, #ff9100)"
-      _hover={{backgroundImage: "linear-gradient(to right, #19f7fa , #1c8cfb)", color : "white"}}
-      fontWeight={"bold"}
-      color={`#2C2C68`}
-      width="120px"
-      rounded="full"
-      >
-        About
-      </Button>
+    <Flex width="600px" align={"center"}>
+      <Link href="/About">
+        <Button
+          bgGradient="linear(to-r, #fff500, #ff9100)"
+          _hover={{
+            backgroundImage: "linear-gradient(to right, #19f7fa , #1c8cfb)",
+            color: "white",
+          }}
+          fontWeight={"bold"}
+          color={`#2C2C68`}
+          width="120px"
+          rounded="full"
+        >
+          About
+        </Button>
       </Link>
-      <Spacer/>
-    <Menu>
-    
-      <MenuButton
-        color={`#2C2C68`}
-        as={Button}
-        rounded="full"
-        bg={"white"}
-        fontWeight={"bold"}
-        fontSize={17}
-        width="180px"
-        border="2px"
-        borderColor={`#FF9100`}
-        rightIcon={<TriangleDownIcon color={`#FF9100`} />}
-      >
-        Map Theme
-      </MenuButton>
-      <MenuList
-        rounded="lg"
-        border="2px"
-        borderColor={`#FF9100`}
-        textColor={"#2C2C68"}S
-       
-      >
-        <MenuItem
-          onClick={() =>
-            SetMapStyle({
-              styles: require("../libs/map-default.json"),
-            })
-          }
-          minH="48px"
-          minW={"100px"}
-        >
-       
-          <Image
-            boxSize="2rem"
-            borderRadius="full"
-            src={defaultMap}
-            alt="Fluffybuns the destroyer"
-            mr="12px"
-            width="50px"
-            height="50px" 
-            
-            
-          />
-           
-        <Text margin="10px">Default</Text>
-        </MenuItem>
-        <Divider
-          orientation="horizontal"
+      <Spacer />
+      <Menu>
+        <MenuButton
+          color={`#2C2C68`}
+          as={Button}
+          rounded="full"
+          bg={"white"}
+          fontWeight={"bold"}
+          fontSize={17}
+          width="180px"
+          border="2px"
           borderColor={`#FF9100`}
-          weight="10px"
-          width="100%"
-          alignSelf="center"
-        />
-        <MenuItem
-          onClick={() =>
-            SetMapStyle({
-              styles: require("../libs/map-grayscale.json"),
-            })
-          }
-          minH="40px"
+          rightIcon={<TriangleDownIcon color={`#FF9100`} />}
         >
-          <Image
-            boxSize="2rem"
-            borderRadius="full"
-            src={grayScaleMap}
-            alt="Simon the pensive"
-            mr="12px"
-            width="50px"
-            height="50px"
-          />
-          <Text margin="10px">GrayScale</Text>
-        </MenuItem>
-        <Divider
-          orientation="horizontal"
+          Map Theme
+        </MenuButton>
+        <MenuList
+          rounded="lg"
+          border="2px"
           borderColor={`#FF9100`}
-          weight="10px"
-          width="100%"
-          alignSelf="center"
-        />
-        <MenuItem
-          onClick={() =>
-            SetMapStyle({
-              styles: require("../libs/map-colorblind.json"),
-            })
-          }
-          minH="40px"
+          textColor={"#2C2C68"}
         >
-          <Image
-            boxSize="2rem"
-            borderRadius="full"
-            src={highContrastMap}
-            alt="Simon the pensive"
-            mr="12px"
-            width="50px"
-            height="50px"
-          />
-          <Text margin="10px" >High Contrast </Text>
-        </MenuItem>
-      </MenuList>
-    </Menu>
+          <MenuItem
+            onClick={() =>
+              SetMapStyle({
+                styles: require("../libs/map-default.json"),
+              })
+            }
+            minH="48px"
+            minW={"100px"}
+          >
+            <Image
+              boxSize="2rem"
+              borderRadius="full"
+              src={defaultMap}
+              alt="Fluffybuns the destroyer"
+              mr="12px"
+              width="50px"
+              height="50px"
+            />
+
+            <Text margin="10px">Default</Text>
+          </MenuItem>
+          <Center height="10px">
+            <Divider
+              orientation="horizontal"
+              borderColor={`#FF9100`}
+              weight="10px"
+              width="90%"
+            />
+          </Center>
+          <MenuItem
+            onClick={() =>
+              SetMapStyle({
+                styles: require("../libs/map-grayscale.json"),
+              })
+            }
+            minH="40px"
+          >
+            <Image
+              boxSize="2rem"
+              borderRadius="full"
+              src={grayScaleMap}
+              alt="Simon the pensive"
+              mr="12px"
+              width="50px"
+              height="50px"
+            />
+            <Text margin="10px">GrayScale</Text>
+          </MenuItem>
+          <Center height="10px">
+            <Divider
+              orientation="horizontal"
+              borderColor={`#FF9100`}
+              weight="10px"
+              width="90%"
+            />
+          </Center>
+          <MenuItem
+            onClick={() =>
+              SetMapStyle({
+                styles: require("../libs/map-colorblind.json"),
+              })
+            }
+            minH="40px"
+          >
+            <Image
+              boxSize="2rem"
+              borderRadius="full"
+              src={highContrastMap}
+              alt="Simon the pensive"
+              mr="12px"
+              width="50px"
+              height="50px"
+            />
+            <Text margin="10px">High Contrast </Text>
+          </MenuItem>
+        </MenuList>
+      </Menu>
     </Flex>
   );
-  
 };
 
 export default MapStylesToggle;
