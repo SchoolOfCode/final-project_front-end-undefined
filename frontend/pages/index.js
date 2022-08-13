@@ -100,7 +100,6 @@ const Home = () => {
       //☝️ else, if neither category nor rating is selected, it filters for places with rating of 420, which don't exist in our database
     }
 
-    // const filteredData = places.filter(conditionSelector);
     const filteredData = backendData.filter(conditionSelector);
 
     setFilteredPlaces(filteredData);
