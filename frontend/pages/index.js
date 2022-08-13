@@ -108,6 +108,8 @@ const Home = () => {
 
   //❗ If using an API, move the commented-out useEffect (currently at the bottom of the file) here and uncomment it. ❗
 
+  //Conditional rendering. If searchStatus == false, renders the big version of the header only (conditional logic inside header component)
+  //If searchStatus == true, renders the skinny version of the header + map + Gallery (conditional logic here)
   return (
     <Flex
       data-testid="home-test"
@@ -134,26 +136,28 @@ const Home = () => {
         setSearchClick={setSearchClick}
         searchClick={searchClick}
       />
-      {/* {searchStatus && ( */}
-      <List
-        data-testid="home-test"
-        places={filteredPlaces}
-        isLoading={isLoading}
-        setIsCard={setIsCard}
-        setCardData={setCardData}
-      />
+      {/* Even if these 2 conditional renders weren't there, it'd still display correctly as Header is set to take up the whole screen if searchStatus is false 
+      However, it seems like good practice not to render things that will be obscured by other things */}
+      {searchStatus && (
+        <List
+          data-testid="home-test"
+          places={filteredPlaces}
+          isLoading={isLoading}
+          setIsCard={setIsCard}
+          setCardData={setCardData}
+        />
       )}
-      {/* {searchStatus && ( */}
-      <Map
-        setCoordinates={setCoordinates}
-        coordinates={coordinates}
-        // setBounds={setBounds} //👈 Comment out if using offline database. Uncomment if using API
-        places={filteredPlaces}
-        isCard={isCard}
-        setIsCard={setIsCard}
-        cardData={cardData}
-        setCardData={setCardData}
-      />
+      {searchStatus && (
+        <Map
+          setCoordinates={setCoordinates}
+          coordinates={coordinates}
+          // setBounds={setBounds} //👈 Comment out if using offline database. Uncomment if using API
+          places={filteredPlaces}
+          isCard={isCard}
+          setIsCard={setIsCard}
+          cardData={cardData}
+          setCardData={setCardData}
+        />
       )}
     </Flex>
   );
