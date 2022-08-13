@@ -151,7 +151,7 @@ const MapStylesToggle = ({}) => {
           <MenuItem
             onClick={() =>
               SetMapStyle({
-                styles: require("../libs/map-colorblind.json"),
+                styles: require("../libs/map-high-contrast.json"),
               })
             }
             minH="40px"
