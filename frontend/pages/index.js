@@ -5,7 +5,6 @@ import List from "../components/List";
 import Map from "../components/Map";
 import Head from "next/head";
 
-
 //👇 Comment out if using offline database. Uncomment if using API
 // import { getPlacesData } from "./api/getPlacesData";
 
@@ -56,9 +55,9 @@ const Home = () => {
   //This controls rendering of map, list and small logo + controls styling of Searchbar
   const [searchStatus, setSearchStatus] = useState(false);
 
-//Logs search button triggers. E.g. anytime the search button is clicked, the status will change, and that in turn will run the useEffect to fetch the map data
-//We will pass setSearchClick to Header > Search component. 
-const [searchClick, setSearchClick] = useState(false);
+  //Logs search button triggers. E.g. anytime the search button is clicked, the status will change, and that in turn will run the useEffect to fetch the map data
+  //We will pass setSearchClick to Header > Search component.
+  const [searchClick, setSearchClick] = useState(false);
 
   //👇 Comment out if using offline database. Uncomment if using API ------------------------------------------
 
@@ -74,15 +73,11 @@ const [searchClick, setSearchClick] = useState(false);
     //  navigator.geolocation.getCurrentPosition(
     //   ({ coords: { latitude, longitude } }) => {
     //     console.log({ latitude, longitude });
-        setCoordinates({ lat: 51.60376294670231, lng:-0.010961442420194591
-        });
+    setCoordinates({ lat: 51.60376294670231, lng: -0.010961442420194591 });
     //   }
     // );
   }, []);
 
-
-
-   
   // This now selects places by rating OR category
   useEffect(() => {
     function conditionSelector(place) {
@@ -129,9 +124,7 @@ const [searchClick, setSearchClick] = useState(false);
           src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyD93tjfea30qHGkuhHJWQ0vQB9FF-HYIZo&region=GB"
           async
         ></script>
-       
       </Head>
-
       <Header
         setRatings={setRatings}
         setCoordinates={setCoordinates}
@@ -141,28 +134,26 @@ const [searchClick, setSearchClick] = useState(false);
         setSearchClick={setSearchClick}
         searchClick={searchClick}
       />
-
-      {searchStatus && (
-        <List
-          data-testid="home-test"
-          places={filteredPlaces}
-          isLoading={isLoading}
-          setIsCard={setIsCard}
-          setCardData={setCardData}
-        />
+      {/* {searchStatus && ( */}
+      <List
+        data-testid="home-test"
+        places={filteredPlaces}
+        isLoading={isLoading}
+        setIsCard={setIsCard}
+        setCardData={setCardData}
+      />
       )}
-
-      {searchStatus && (
-        <Map
-          setCoordinates={setCoordinates}
-          coordinates={coordinates}
-          // setBounds={setBounds} //👈 Comment out if using offline database. Uncomment if using API
-          places={filteredPlaces}
-          isCard={isCard}
-          setIsCard={setIsCard}
-          cardData={cardData}
-          setCardData={setCardData}
-        />
+      {/* {searchStatus && ( */}
+      <Map
+        setCoordinates={setCoordinates}
+        coordinates={coordinates}
+        // setBounds={setBounds} //👈 Comment out if using offline database. Uncomment if using API
+        places={filteredPlaces}
+        isCard={isCard}
+        setIsCard={setIsCard}
+        cardData={cardData}
+        setCardData={setCardData}
+      />
       )}
     </Flex>
   );

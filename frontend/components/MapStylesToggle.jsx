@@ -34,7 +34,7 @@ const MapStylesToggle = ({}) => {
   const [mapStyle, SetMapStyle] = useContext(MapStyleContext);
   // SetMapStyle(`require('../libs/map-grayscale.json')`)
   return (
-    <Flex align={"center"} bg="green">
+    <Flex align={"center"} height={"50px"}>
       <Link href="/About">
         <Button
           color={`#2C2C68`}

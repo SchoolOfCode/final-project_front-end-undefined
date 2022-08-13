@@ -1,6 +1,6 @@
 import { Flex, Spacer, GridItem, Grid } from "@chakra-ui/react";
 import Search from "./Search";
-import Logo from "../public/logo.png";
+import Logo from "../public/logo_new_resized.png";
 import MapStylesToggle from "./MapStylesToggle";
 
 import Image from "next/image";
@@ -23,20 +23,21 @@ const Header = ({
         top={0}
         left={0}
         height={"70px"}
-        width={"full"}
-        px={4}
-        py={2}
+        w="full"
         zIndex={101}
         bgColor={"white"}
+        align="center"
       >
         <Image
           src={Logo}
           alt={"logo"}
-          width={"150px"}
-          height={"50px"}
-          style={{ zIndex: 99 }}
+          objectFit="contain"
+          width="300px"
+          height="100%"
           onClick={() => setSearchStatus(false)}
         />
+
+        <Spacer />
         <Search
           setCoordinates={setCoordinates}
           setCategory={setCategory}
@@ -47,6 +48,7 @@ const Header = ({
           setSearchClick={setSearchClick}
           searchClick={searchClick}
         />
+        <Spacer />
         <MapStylesToggle />
       </Flex>
     </>

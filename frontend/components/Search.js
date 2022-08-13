@@ -66,8 +66,8 @@ const Search = ({
     setSearchClick(!searchClick);
   }
   return (
-    <div>
-      <Box maringTop={marginTop} bg="red">
+    <>
+      <Box maringTop={marginTop} alignSelf="center">
         <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
           <InputGroup
             width={"50vw"}
@@ -253,7 +253,7 @@ const Search = ({
           </InputGroup>
         </Autocomplete>
       </Box>
-    </div>
+    </>
   );
 };
 

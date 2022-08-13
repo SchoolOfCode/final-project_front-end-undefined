@@ -73,7 +73,6 @@ const MapStylesToggle = ({}) => {
           border="2px"
           borderColor={`#FF9100`}
           textColor={"#2C2C68"}
-          S
         >
           <MenuItem
             onClick={() =>
