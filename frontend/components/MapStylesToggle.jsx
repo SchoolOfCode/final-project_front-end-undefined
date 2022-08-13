@@ -3,23 +3,13 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
   Button,
   Divider,
   Text,
   Flex,
   Center,
 } from "@chakra-ui/react";
-import {
-  PhoneIcon,
-  AddIcon,
-  WarningIcon,
-  ChevronDownIcon,
-  TriangleDownIcon,
-} from "@chakra-ui/icons";
+import { TriangleDownIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import defaultMap from "../public/default.png";
 import grayScaleMap from "../public/grayscale.png";
@@ -66,7 +56,7 @@ const MapStylesToggle = ({}) => {
           }}
           rightIcon={<TriangleDownIcon color={`#FF9100`} />}
         >
-          Map Colour
+          Map Theme
         </MenuButton>
         <MenuList
           rounded="lg"
@@ -148,7 +138,34 @@ const MapStylesToggle = ({}) => {
               width="50px"
               height="50px"
             />
-            <Text margin="10px">High Contrast </Text>
+            <Text margin="10px">Ultra High Contrast </Text>
+          </MenuItem>
+          <Center height="10px">
+            <Divider
+              orientation="horizontal"
+              borderColor={`#FF9100`}
+              weight="10px"
+              width="90%"
+            />
+          </Center>
+          <MenuItem
+            onClick={() =>
+              SetMapStyle({
+                styles: require("../libs/map-colorblind.json"),
+              })
+            }
+            minH="40px"
+          >
+            <Image
+              boxSize="2rem"
+              borderRadius="full"
+              src={highContrastMap}
+              alt="Simon the pensive"
+              mr="12px"
+              width="50px"
+              height="50px"
+            />
+            <Text margin="10px">Colour Blind Friendly</Text>
           </MenuItem>
         </MenuList>
       </Menu>
