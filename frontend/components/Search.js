@@ -8,17 +8,12 @@ import {
   Button,
   Divider,
   Center,
-  Box,
-  Flex,
-  Text,
 } from "@chakra-ui/react";
 import { Autocomplete } from "@react-google-maps/api";
 import React, { useState } from "react";
 import { TriangleDownIcon, Search2Icon } from "@chakra-ui/icons";
 import OurButton from "./OurButton";
 import { Rating } from "@material-ui/lab";
-import logo from "../public/logo.png";
-import Image from "next/image";
 
 const Search = ({
   setCoordinates,
@@ -53,13 +48,6 @@ const Search = ({
     console.log(rate);
     setRatings(rate);
     setRatingText(rate);
-  }
-
-  let marginTop = "300px";
-  let imageDisplay = "display";
-  if (searchStatus) {
-    marginTop = "5px";
-    imageDisplay = "none";
   }
 
   function searchFunction() {

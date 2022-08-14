@@ -79,7 +79,7 @@ const MapStylesToggle = ({}) => {
               boxSize="2rem"
               borderRadius="full"
               src={defaultMap}
-              alt="Fluffybuns the destroyer"
+              alt="Thumbnail of Default Map"
               mr="12px"
               width="50px"
               height="50px"
@@ -107,7 +107,7 @@ const MapStylesToggle = ({}) => {
               boxSize="2rem"
               borderRadius="full"
               src={greyScaleMap}
-              alt="Simon the pensive"
+              alt="Thumbnail of Greyscale Map"
               mr="12px"
               width="50px"
               height="50px"
@@ -134,7 +134,7 @@ const MapStylesToggle = ({}) => {
               boxSize="2rem"
               borderRadius="full"
               src={colourBlindMap}
-              alt="Simon the pensive"
+              alt="Thumbnail of Colour Blind Friendly Map"
               mr="12px"
               width="50px"
               height="50px"
@@ -161,7 +161,7 @@ const MapStylesToggle = ({}) => {
               boxSize="2rem"
               borderRadius="full"
               src={contrastMap}
-              alt="Simon the pensive"
+              alt="Thumbnail of Ultra High Contrast Map"
               mr="12px"
               width="50px"
               height="50px"
