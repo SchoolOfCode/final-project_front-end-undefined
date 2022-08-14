@@ -44,6 +44,7 @@ const LargeCard = ({ cardData, setIsCard, rating, setRating }) => {
         onClick={() => {
           setIsCard(false);
           setRating(null);
+          setFavStatus(false)
         }}
       >
         <BiX fontSize={28} color="white" />
