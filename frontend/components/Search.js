@@ -20,7 +20,7 @@ const Search = ({
   setCategory,
   setRatings,
   setSearchStatus,
-  searchStatus,
+
   setSearchClick,
   searchClick,
 }) => {
