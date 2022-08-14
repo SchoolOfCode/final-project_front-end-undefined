@@ -11,9 +11,10 @@ import {
 } from "@chakra-ui/react";
 import { TriangleDownIcon } from "@chakra-ui/icons";
 import Image from "next/image";
-import defaultMap from "../public/default.png";
-import grayScaleMap from "../public/grayscale.png";
-import highContrastMap from "../public/high-contrast.png";
+import defaultMap from "../public/map-thumb-default.png";
+import greyScaleMap from "../public/map-thumb-greyscale.png";
+import contrastMap from "../public/map-thumb-contrast.png";
+import colourBlindMap from "../public/map-thumb-colourblind.png";
 import React, { useState, useContext } from "react";
 // importing map style props
 import { MapStyleContext } from "./MapStyleContext";
@@ -22,7 +23,7 @@ import Link from "next/link";
 const MapStylesToggle = ({}) => {
   // importing mapStyle useState from our MapStyleContext which withold the styling information.
   const [mapStyle, SetMapStyle] = useContext(MapStyleContext);
-  // SetMapStyle(`require('../libs/map-grayscale.json')`)
+
   return (
     <Flex align={"center"} height={"50px"}>
       <Link href="/About">
@@ -105,40 +106,13 @@ const MapStylesToggle = ({}) => {
             <Image
               boxSize="2rem"
               borderRadius="full"
-              src={grayScaleMap}
+              src={greyScaleMap}
               alt="Simon the pensive"
               mr="12px"
               width="50px"
               height="50px"
             />
-            <Text margin="10px">GrayScale</Text>
-          </MenuItem>
-          <Center height="10px">
-            <Divider
-              orientation="horizontal"
-              borderColor={`#FF9100`}
-              weight="10px"
-              width="90%"
-            />
-          </Center>
-          <MenuItem
-            onClick={() =>
-              SetMapStyle({
-                styles: require("../libs/map-colorblind.json"),
-              })
-            }
-            minH="40px"
-          >
-            <Image
-              boxSize="2rem"
-              borderRadius="full"
-              src={highContrastMap}
-              alt="Simon the pensive"
-              mr="12px"
-              width="50px"
-              height="50px"
-            />
-            <Text margin="10px">Ultra High Contrast </Text>
+            <Text margin="10px">GreyScale</Text>
           </MenuItem>
           <Center height="10px">
             <Divider
@@ -159,13 +133,40 @@ const MapStylesToggle = ({}) => {
             <Image
               boxSize="2rem"
               borderRadius="full"
-              src={highContrastMap}
+              src={colourBlindMap}
               alt="Simon the pensive"
               mr="12px"
               width="50px"
               height="50px"
             />
             <Text margin="10px">Colour Blind Friendly</Text>
+          </MenuItem>
+          <Center height="10px">
+            <Divider
+              orientation="horizontal"
+              borderColor={`#FF9100`}
+              weight="10px"
+              width="90%"
+            />
+          </Center>
+          <MenuItem
+            onClick={() =>
+              SetMapStyle({
+                styles: require("../libs/map-colorblind.json"),
+              })
+            }
+            minH="40px"
+          >
+            <Image
+              boxSize="2rem"
+              borderRadius="full"
+              src={contrastMap}
+              alt="Simon the pensive"
+              mr="12px"
+              width="50px"
+              height="50px"
+            />
+            <Text margin="10px">Ultra High Contrast </Text>
           </MenuItem>
         </MenuList>
       </Menu>
