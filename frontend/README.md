@@ -6,7 +6,7 @@
 
 
 <center>
- <span style="color:#17CEDA"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;Helping you find what you need, where you need it. </span> 
+ <span style="color:#17CEDA; font-weight: 600;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;  ✨ Helping you find what you need, where you need it. ✨  </span> 
 </center>
 
 </br></br></br></br></br></br></br></br></br>
@@ -58,6 +58,8 @@
 </br>
 
 &nbsp;Checkout our LIVE app here: 
+
+&nbsp;https://accessu-undefinedsoc.vercel.app/
 
 </br>
 
@@ -339,11 +341,11 @@ This returns:
 
 </br>
 
-DELETE: http://localhost:3001/resources/{id}
+DELETE: http://localhost:3000/places/{id}
 
 </br>
 
-e.g. DELETE http://localhost:3001/resources/5
+e.g. DELETE http://localhost:3000/places/5
 
 </br>
 

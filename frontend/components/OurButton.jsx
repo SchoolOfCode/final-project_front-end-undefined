@@ -5,7 +5,9 @@ const OurButton = ({ text, icon, onClick }) => {
     <Button
       bgGradient="linear(to-r, #17CEDA, #032396)"
       rounded="full"
-      _hover={"linear(to-r, blue.200, purple.500)"}
+      _hover={{
+        backgroundImage: "linear-gradient(to right, #19f7fa , #1c8cfb)",
+      }}
       leftIcon={icon}
       color="white"
       width="120px"
