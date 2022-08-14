@@ -12,8 +12,8 @@ import PsychologyIcon from "@mui/icons-material/Psychology";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import StarRating from "./StarRating";
 
-const LargeCard = ({ cardData, setIsCard, rating, setRating }) => {
-  const [favStatus, setFavStatus] = useState(false);
+const LargeCard = ({ cardData, setIsCard, rating, setRating, setFavStatus, favStatus }) => {
+  
 
   return (
     <Box

@@ -14,6 +14,8 @@ const Map = ({
   setCardData,
   rating,
   setRating,
+  favStatus,
+  setFavStatus,
 }) => {
   const [mapStyle, SetMapStyle] = useContext(MapStyleContext)
 
@@ -38,6 +40,7 @@ const Map = ({
         onChildClick={(child) => {
           setCardData(places[child]);
           setIsCard(true);
+          setFavStatus(false)
         }}
       >
         {places?.map((place, i) => (
@@ -53,7 +56,8 @@ const Map = ({
         ))}
 
         {/* Conditionally rendered the LargeCard component if isCard is true  */}
-        {isCard && <LargeCard cardData={cardData} setIsCard={setIsCard} rating={rating} setRating={setRating} />}
+        {isCard && <LargeCard cardData={cardData} setIsCard={setIsCard} rating={rating} setRating={setRating}
+        setFavStatus={setFavStatus} favStatus={favStatus}/>}
       </GoogleMapReact>
     </Box>
   );

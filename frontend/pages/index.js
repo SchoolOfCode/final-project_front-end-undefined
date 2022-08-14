@@ -15,6 +15,8 @@ import Head from "next/head";
 const Home = () => {
   const [backendData, setBackendData] = useState([]);
 
+  const [favStatus, setFavStatus] = useState(false);
+
   const [reviewData, setReviewData] = useState([]);
 
   const [starRating, setStarRating] = useState()
@@ -179,6 +181,8 @@ const [searchClick, setSearchClick] = useState(false);
           reviewData={reviewData}
           setStarRating={setStarRating}
           starRating={starRating}
+          setFavStatus={setFavStatus}
+          favStatus={favStatus}
         />
       )}
 
@@ -196,6 +200,8 @@ const [searchClick, setSearchClick] = useState(false);
           setRating={setRating}
           setStarRating={setStarRating}
           starRating={starRating}
+          setFavStatus={setFavStatus}
+          favStatus={favStatus}
         />
       )}
     </Flex>

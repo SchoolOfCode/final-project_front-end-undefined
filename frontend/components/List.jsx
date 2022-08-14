@@ -12,7 +12,7 @@ import {
 
 // When the page loads, the skeleton frame shows, but only if we're using the API.
 
-const List = ({ places, isLoading, setIsCard, setCardData, setRating, rating, reviewData, starRating, setStarRating }) => {
+const List = ({ places, isLoading, setIsCard, setCardData, setRating, rating, reviewData, starRating, setStarRating, setFavStatus, favStatus }) => {
 
   if (isLoading)
     return (
@@ -75,6 +75,8 @@ const List = ({ places, isLoading, setIsCard, setCardData, setRating, rating, re
                 setRating={setRating}
                 rating={rating}
                 reviewData={reviewData}
+                favStatus={favStatus}
+                setFavStatus={setFavStatus}
               />
               <Divider
                 orientation="horizontal"

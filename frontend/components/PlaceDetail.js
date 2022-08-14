@@ -7,7 +7,7 @@ import AccessibleIcon from "@mui/icons-material/Accessible";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 
-const PlaceDetail = ({ place, setIsCard, setCardData, rating, setRating, reviewData }) => {
+const PlaceDetail = ({ place, setIsCard, setCardData, rating, setRating, reviewData, favStatus, setFavStatus }) => {
   // get the place is from our places object that is passed to this component
   let selectedPlace = place.id
   // Create an empty array to store all the ratings for that specific place. This is later used to calculate average
@@ -41,6 +41,7 @@ const PlaceDetail = ({ place, setIsCard, setCardData, rating, setRating, reviewD
         setCardData(place);
         setIsCard(true);
         setRating(null)
+        setFavStatus(false)
       }}
     >
       <Flex direction="column" width="full">
