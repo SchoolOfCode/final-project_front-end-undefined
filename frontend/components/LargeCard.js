@@ -3,6 +3,8 @@ import { Box, Image, Spacer, Text, Flex } from "@chakra-ui/react";
 import { Rating } from "@material-ui/lab";
 import { BiX } from "react-icons/bi";
 import { FcLikePlaceholder, FcLike } from "react-icons/fc";
+import { useUser } from '@auth0/nextjs-auth0';
+import Router from 'next/router'
 
 //Icon imports:
 
@@ -13,6 +15,18 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import StarRating from "./StarRating";
 
 const LargeCard = ({ cardData, setIsCard, rating, setRating, setFavStatus, favStatus }) => {
+  const { user, error, isLoading } = useUser();
+
+
+  function saveFavItem(){
+    
+    if (user) {
+      setFavStatus(!favStatus);
+    }else {
+      Router.push('/api/auth/login')
+    }
+  }
+
   
 
   return (
@@ -58,13 +72,12 @@ const LargeCard = ({ cardData, setIsCard, rating, setRating, setFavStatus, favSt
         right={10}
         width={"30px"}
         height={"30px"}
-        //this gradient works better on this small element than the gradient in OurButton
         rounded={"full"}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
         onClick={() => {
-          setFavStatus(!favStatus);
+          saveFavItem()
         }}
       >
         {favStatus && <FcLike fontSize={28} color="white" />}
