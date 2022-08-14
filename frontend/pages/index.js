@@ -16,10 +16,6 @@ import { useUser } from '@auth0/nextjs-auth0';
 
 const Home = () => {
 
-  const { user, error, isLoading } = useUser()
-
- 
-
   
   const [backendData, setBackendData] = useState([]);
 
@@ -80,7 +76,7 @@ const Home = () => {
   const [filteredPlaces, setFilteredPlaces] = useState([]);
 
   //Used to display the skeleton whilst data are being fetched from API. Doesn't do anything when using offline data:
-  const [isLoadingList, setIsLoadingList] = useState(false);
+  const [contentLoading, setcontentLoading] = useState(false);
 
   // Gets the users current location on intial login
   const [coordinates, setCoordinates] = useState({});
@@ -156,7 +152,6 @@ const [searchClick, setSearchClick] = useState(false);
       maxHeight={"100vh"}
       position={"relative"}
     >
-      <a href="/api/auth/login">Login</a>
       <Head>
         <script
           src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyD93tjfea30qHGkuhHJWQ0vQB9FF-HYIZo&region=GB"
@@ -182,7 +177,7 @@ const [searchClick, setSearchClick] = useState(false);
         <List
           data-testid="home-test"
           places={filteredPlaces}
-          isLoading={isLoadingList}
+          contentLoading={contentLoading}
           setIsCard={setIsCard}
           setCardData={setCardData}
           rating={rating}
@@ -223,11 +218,11 @@ export default Home;
 // Updates the data to the users choice of category or location
 
 // useEffect(() => {
-//   setIsLoading(true);
+//   setcontentLoading(true);
 //   getPlacesData(type, bounds?.sw, bounds?.ne).then((data) => {
 //     console.log(`This is data: ${data}`);
 //     console.dir(data);
 //     setPlaces(data);
-//     setIsLoading(false);
+//     setcontentLoading(false);
 //   });
 // }, [type, coordinates, bounds]);

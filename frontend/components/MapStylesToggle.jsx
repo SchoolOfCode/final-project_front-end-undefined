@@ -35,7 +35,12 @@ const MapStylesToggle = ({}) => {
   // SetMapStyle(`require('../libs/map-grayscale.json')`)
   return (
     <Flex align={"center"}>
+      <Text paddingRight="4px">
       <a href="/api/auth/login">Login</a>
+      <a href="/api/auth/logout">Logout</a>
+
+      </Text>
+      
       <Menu>
         <Link href="/About">
           <MenuButton

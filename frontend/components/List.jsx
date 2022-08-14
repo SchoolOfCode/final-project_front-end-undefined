@@ -12,9 +12,9 @@ import {
 
 // When the page loads, the skeleton frame shows, but only if we're using the API.
 
-const List = ({ places, isLoading, setIsCard, setCardData, setRating, rating, reviewData, starRating, setStarRating, setFavStatus, favStatus }) => {
+const List = ({ places, contentLoading, setIsCard, setCardData, setRating, rating, reviewData, starRating, setStarRating, setFavStatus, favStatus }) => {
 
-  if (isLoading)
+  if (contentLoading)
     return (
       <Flex
         direction="column"
