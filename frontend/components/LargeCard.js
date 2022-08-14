@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Box, Image, Spacer, Text, Flex } from "@chakra-ui/react";
 import { Rating } from "@material-ui/lab";
 import { BiX } from "react-icons/bi";
+import { FcLikePlaceholder, FcLike } from "react-icons/fc";
 
 //Icon imports:
 
@@ -12,9 +13,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import StarRating from "./StarRating";
 
 const LargeCard = ({ cardData, setIsCard, rating, setRating }) => {
-
-
-
+  const [favStatus, setFavStatus] = useState(false);
 
   return (
     <Box
@@ -37,17 +36,39 @@ const LargeCard = ({ cardData, setIsCard, rating, setRating }) => {
         right={2}
         width={"30px"}
         height={"30px"}
-        bgGradient="linear(to-tr, #17CEDA, #0954a9, #032396)" //this gradient works better on this small element than the gradient in OurButton
+        //this gradient works better on this small element than the gradient in OurButton
         rounded={"full"}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
         onClick={() => {
           setIsCard(false);
-          setRating(null)
+          setRating(null);
         }}
       >
         <BiX fontSize={28} color="white" />
+      </Box>
+
+      {/* Favorite icon button */}
+      <Box
+        cursor={"pointer"}
+        position={"absolute"}
+        top={2}
+        right={10}
+        width={"30px"}
+        height={"30px"}
+        //this gradient works better on this small element than the gradient in OurButton
+        rounded={"full"}
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        onClick={() => {
+          setFavStatus(!favStatus);
+        }}
+      >
+        {favStatus && <FcLike fontSize={28} color="white" />}
+
+        {!favStatus && <FcLikePlaceholder fontSize={28} color="white" />}
       </Box>
       {/* Chakra Image component to display place Image on cards */}
 
@@ -206,15 +227,14 @@ const LargeCard = ({ cardData, setIsCard, rating, setRating }) => {
             </Flex>
           )}
           <Flex>
-          <Text
-                fontSize={"small"}
-                fontWeight={500}
-                color={"#2C2C68"}
-                ml={1}
-              >
-                How would you rate this place?
-              </Text>
-              <StarRating rating={rating} setRating={setRating} place_id={cardData.id}/>
+            <Text fontSize={"small"} fontWeight={500} color={"#2C2C68"} ml={1}>
+              How would you rate this place?
+            </Text>
+            <StarRating
+              rating={rating}
+              setRating={setRating}
+              place_id={cardData.id}
+            />
           </Flex>
         </Flex>
       </Box>
