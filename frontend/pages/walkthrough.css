@@ -5,3 +5,30 @@
 button.uf-button.uf-button-primary {
     background-image: linear-gradient(to right, #17CEDA, #032396);
 }
+
+.uf-bubble {
+    
+    border-color: #ff9100 !important;
+}
+
+/* This is an attempt to change the border colour of the pointer element by brute force. So far unsuccessful. */
+.uf-bubble .pointer {
+    border: #ff9100 !important;
+    border-top: #ff9100 !important;
+    border-color: #ff9100 !important;
+    color: #ff9100 !important;
+    visibility: visible !important;
+}
+
+/* This overrides the styling of the title in the bubble */
+.uf-title {
+    color: #2C2C68 !important;
+    font-weight: bold !important;
+}
+
+/* This overrides the styling of the texgt in the bubble */
+.uf-bubble-content p span {
+    color: #2C2C68 !important;
+}
+
+
