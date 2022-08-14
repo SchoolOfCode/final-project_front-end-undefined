@@ -4,6 +4,7 @@ import './walkthrough.css'
 import './App.css'
 import TagManager from 'react-gtm-module'
 import {MapStyleProvider} from '../components/MapStyleContext'
+import { UserProvider } from '@auth0/nextjs-auth0';
 
 function MyApp({ Component, pageProps }) {
   // Import our Google Tag Manager ID, this is found on Google Tag Manager's Dashboard
@@ -19,11 +20,13 @@ if (process.browser) {
 
 // Map style provider is passing props from MapStyleContext to the rest of our app.
   return (
+    <UserProvider>
     <MapStyleProvider>
     <ChakraProvider>
       <Component {...pageProps} />
     </ChakraProvider>
     </MapStyleProvider>
+    </UserProvider>
   );
 }
 

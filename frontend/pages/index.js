@@ -4,6 +4,8 @@ import Header from "../components/Header";
 import List from "../components/List";
 import Map from "../components/Map";
 import Head from "next/head";
+import { useUser } from '@auth0/nextjs-auth0';
+
 
 
 //👇 Comment out if using offline database. Uncomment if using API
