@@ -112,7 +112,7 @@ const MapStylesToggle = ({}) => {
               width="50px"
               height="50px"
             />
-            <Text margin="10px">GreyScale</Text>
+            <Text margin="10px">Greyscale</Text>
           </MenuItem>
           <Center height="10px">
             <Divider
