@@ -29,7 +29,7 @@ const HeaderSmall = ({
       >
         <Image
           src={Logo}
-          alt={"logo"}
+          alt={"AccesU Logo"}
           objectFit="contain"
           width="300px"
           height="100%"

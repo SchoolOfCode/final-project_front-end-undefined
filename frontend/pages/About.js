@@ -3,11 +3,9 @@ import { Flex, Text, Divider, Center } from "@chakra-ui/react";
 import Logo from "../public/logo.png";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Header from "../components/Header";
 import { Heading } from "@chakra-ui/react";
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { QuestionOutlineIcon } from "@chakra-ui/icons";
-import { fontWeight } from "@mui/system";
+
 import {
   List,
   ListItem,
@@ -42,11 +40,10 @@ export default function About() {
         >
           <Image
             src={Logo}
-            alt={"logo"}
+            alt={"AccesU Logo"}
             style={{ zIndex: 99 }}
             onClick={handleClick}
-          />{" "}
-          <Text fontSize={"38px"}> Prepare to be ENABLED </Text>
+          />
         </Flex>
 
         <Flex

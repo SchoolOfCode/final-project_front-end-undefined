@@ -32,7 +32,11 @@ const HeaderBig = ({
     >
       <Spacer />
 
-      <Image src={Logo} alt={"logo"} onClick={() => setSearchStatus(false)} />
+      <Image
+        src={Logo}
+        alt={"AccesU Logo"}
+        onClick={() => setSearchStatus(false)}
+      />
       <Search
         setCoordinates={setCoordinates}
         setCategory={setCategory}
