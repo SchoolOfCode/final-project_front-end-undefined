@@ -36,7 +36,7 @@ const LargeCard = ({ cardData, setIsCard, rating, setRating }) => {
         right={2}
         width={"30px"}
         height={"30px"}
-        //this gradient works better on this small element than the gradient in OurButton
+        bgGradient="linear(to-tr, #17CEDA, #0954a9, #032396)" //this gradient works better on this small element than the gradient in OurButton
         rounded={"full"}
         display={"flex"}
         justifyContent={"center"}
