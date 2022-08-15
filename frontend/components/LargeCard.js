@@ -18,10 +18,19 @@ const LargeCard = ({ cardData, setIsCard, rating, setRating, setFavStatus, favSt
  
   const { user, error, isLoading } = useUser();
 
+  let favData = {
+
+  }
 
   function saveFavItem(){
     
     if (user) {
+      favData = {
+        place_id: cardData.place_id,
+        name: cardData.name,
+        web_address: cardData.web_address,
+        user_id: user.sub
+      }
       setFavStatus(!favStatus);
       saveFav(favData)
 
@@ -31,12 +40,7 @@ const LargeCard = ({ cardData, setIsCard, rating, setRating, setFavStatus, favSt
   }
 
 
-const favData = {
-  place_id: cardData.place_id,
-  name: cardData.name,
-  web_address: cardData.web_address,
-  user_id: user.sub
-}
+
 
   async function saveFav(favData) {
     try {

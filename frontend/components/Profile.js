@@ -15,7 +15,7 @@ export default function Profile() {
         const fetchData = async () => {
           try {
             const response = await fetch(
-              `http://localhost:5000/favs`
+              `https://undefined-room4.herokuapp.com/favs`
             );
             const data = await response.json();
             // setPlaces(data.payload.rows);

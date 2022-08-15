@@ -28,7 +28,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://places-table-undefined.herokuapp.com/places`
+          `https://undefined-room4.herokuapp.com/places`
         );
         const data = await response.json();
         // setPlaces(data.payload.rows);
@@ -40,7 +40,7 @@ const Home = () => {
     const fetchReviewData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/reviews`
+          `https://undefined-room4.herokuapp.com/reviews`
         );
         const data = await response.json();
         // setPlaces(data.payload.rows);
