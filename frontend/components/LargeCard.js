@@ -15,6 +15,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import StarRating from "./StarRating";
 
 const LargeCard = ({ cardData, setIsCard, rating, setRating, setFavStatus, favStatus }) => {
+ 
   const { user, error, isLoading } = useUser();
 
 
@@ -22,12 +23,41 @@ const LargeCard = ({ cardData, setIsCard, rating, setRating, setFavStatus, favSt
     
     if (user) {
       setFavStatus(!favStatus);
+      saveFav(favData)
+
     }else {
       Router.push('/api/auth/login')
     }
   }
 
-  
+
+const favData = {
+  place_id: cardData.place_id,
+  name: cardData.name,
+  web_address: cardData.web_address,
+  user_id: user.sub
+}
+
+  async function saveFav(favData) {
+    try {
+      console.log("Card Data", cardData);
+      console.log("Fav Data", favData);
+      const res = await fetch(`http://localhost:5000/favs`, {
+      method: "POST",
+      body: JSON.stringify(favData),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+    const data = await res.json();
+    console.log('Returned data is' , data);
+
+    } catch (error) {
+      console.log('ERROR fetching data...',  error)
+    }
+    
+    
+  }
 
   return (
     <Box
