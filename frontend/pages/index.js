@@ -15,6 +15,9 @@ import Head from "next/head";
 const Home = () => {
   const [backendData, setBackendData] = useState([]);
 
+  const [reviewData, setReviewData] = useState([]);
+
+  const [starRating, setStarRating] = useState()
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,12 +31,31 @@ const Home = () => {
         console.log("error", error);
       }
     };
+    const fetchReviewData = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/reviews`
+        );
+        const data = await response.json();
+        // setPlaces(data.payload.rows);
+        setReviewData(data.payload.rows);
+        console.log('Review Data is...', data.payload.rows)
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    fetchReviewData();
     fetchData();
   }, []);
+
+  
 
   console.log(backendData);
 
   //STATES:
+  //Rating status passed down from here
+  const [rating, setRating] = useState(null);
+  
   //Changes from false to true when the user clicks a pin/marker. Then back to false when the user closes the large card pop-up:
   const [isCard, setIsCard] = useState(false);
 
@@ -143,6 +165,7 @@ const Home = () => {
             searchClick={searchClick}
           />
 
+<<<<<<< HEAD
           <List
             data-testid="home-test"
             places={filteredPlaces}
@@ -175,6 +198,51 @@ const Home = () => {
             searchClick={searchClick}
           />
         </>
+=======
+      <Header
+        setRatings={setRatings}
+        setCoordinates={setCoordinates}
+        setCategory={setCategory}
+        setSearchStatus={setSearchStatus}
+        searchStatus={searchStatus}
+        setSearchClick={setSearchClick}
+        searchClick={searchClick}
+        reviewData={reviewData}
+       
+
+      />
+
+      {searchStatus && (
+        <List
+          data-testid="home-test"
+          places={filteredPlaces}
+          isLoading={isLoading}
+          setIsCard={setIsCard}
+          setCardData={setCardData}
+          rating={rating}
+          setRating={setRating}
+          reviewData={reviewData}
+          setStarRating={setStarRating}
+          starRating={starRating}
+        />
+      )}
+
+      {searchStatus && (
+        <Map
+          setCoordinates={setCoordinates}
+          coordinates={coordinates}
+          // setBounds={setBounds} //👈 Comment out if using offline database. Uncomment if using API
+          places={filteredPlaces}
+          isCard={isCard}
+          setIsCard={setIsCard}
+          cardData={cardData}
+          setCardData={setCardData}
+          rating={rating}
+          setRating={setRating}
+          setStarRating={setStarRating}
+          starRating={starRating}
+        />
+>>>>>>> 6f5306676a261f52dd765157828f64715d8ac96f
       )}
     </Flex>
   );

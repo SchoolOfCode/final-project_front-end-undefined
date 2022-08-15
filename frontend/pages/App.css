@@ -1,0 +1,9 @@
+/* Hide the input that is attached to the star rating that records the value */
+input[type="radio"] {
+ display: none;
+}
+
+.star{
+    cursor: pointer;
+    transition: color 200ms;
+}

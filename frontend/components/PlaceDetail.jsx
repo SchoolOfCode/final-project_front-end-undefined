@@ -6,25 +6,12 @@ import HearingIcon from "@mui/icons-material/Hearing";
 import AccessibleIcon from "@mui/icons-material/Accessible";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import StarRating from "./StarRating";
 
 const PlaceDetail = ({ place, setIsCard, setCardData, rating, setRating, reviewData }) => {
-  // get the place is from our places object that is passed to this component
-  let selectedPlace = place.id
-  // Create an empty array to store all the ratings for that specific place. This is later used to calculate average
-  let averageRating = []
-  reviewData.map((rating, i)=>{
-    //filter out ONLY places that match the CURRENT place_id ,and find their star rating
-    if (selectedPlace == rating.place_id) {
-      console.log(i, ` rating is `, rating.rating, 'place id is', rating.place_id)
-      //then push the star rating for that place into the array
-      averageRating.push(rating.rating)
-    }
-  })
-  //use reducer to loop through the N number of ratings and calculate the average
-  const average = averageRating.reduce((a, b) => a + b, 0) / averageRating.length
-  //the average constant will now replace the value for the Rating component in our render.
-  console.log('Average Rating Array isss.....', average)
 
+
+  
   return (
     <Flex
       marginTop="15px"
@@ -41,6 +28,7 @@ const PlaceDetail = ({ place, setIsCard, setCardData, rating, setRating, reviewD
         setCardData(place);
         setIsCard(true);
         setRating(null)
+
       }}
     >
       <Flex direction="column" width="full">
@@ -52,9 +40,9 @@ const PlaceDetail = ({ place, setIsCard, setCardData, rating, setRating, reviewD
             fontWeight={"bold"}
             color={"#2C2C68"}
           >
-            {place.name}
+            {place.name} THIS IS TESTTT
           </Text>
-          <Rating size="small" value={Number(average)} readOnly />
+          {/* <Rating size="small" value={Number(place.rating)} readOnly /> */}
         </Flex>
 
         {place?.address && (
@@ -62,7 +50,7 @@ const PlaceDetail = ({ place, setIsCard, setCardData, rating, setRating, reviewD
             <IoLocation fontSize={20} color="#2C2C68" />
 
             <Text fontSize={"12px"} fontWeight={500} color={"gray.700"} ml={1}>
-              {place.address}
+              {place.address} THIS IS ADDRESSSSS
             </Text>
           </Flex>
         )}
@@ -156,8 +144,9 @@ const PlaceDetail = ({ place, setIsCard, setCardData, rating, setRating, reviewD
         }
         alt={place.alt}
       />
+      
     </Flex>
   );
-};
+      }
 
 export default PlaceDetail;

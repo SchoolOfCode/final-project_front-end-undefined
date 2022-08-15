@@ -12,6 +12,8 @@ const Map = ({
   setIsCard,
   cardData,
   setCardData,
+  rating,
+  setRating,
 }) => {
   const [mapStyle, SetMapStyle] = useContext(MapStyleContext)
 
@@ -51,7 +53,7 @@ const Map = ({
         ))}
 
         {/* Conditionally rendered the LargeCard component if isCard is true  */}
-        {isCard && <LargeCard cardData={cardData} setIsCard={setIsCard} />}
+        {isCard && <LargeCard cardData={cardData} setIsCard={setIsCard} rating={rating} setRating={setRating} />}
       </GoogleMapReact>
     </Box>
   );

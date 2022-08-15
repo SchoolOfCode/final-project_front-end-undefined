@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Box, Image, Spacer, Text, Flex } from "@chakra-ui/react";
 import { Rating } from "@material-ui/lab";
 import { BiX } from "react-icons/bi";
@@ -9,16 +9,21 @@ import AccessibleIcon from "@mui/icons-material/Accessible";
 import HearingIcon from "@mui/icons-material/Hearing";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import StarRating from "./StarRating";
 
-const LargeCard = ({ cardData, setIsCard }) => {
+const LargeCard = ({ cardData, setIsCard, rating, setRating }) => {
+
+
+
+
   return (
     <Box
       bg="white"
-      height="550px"
+      height="690px"
       width="250px"
-      position="absolute"
+      position="relative"
       top="-25vh"
-      left="-25vw"
+      left="-15vw"
       bottom="50px"
       borderRadius="15"
       border="2px"
@@ -39,6 +44,7 @@ const LargeCard = ({ cardData, setIsCard }) => {
         alignItems={"center"}
         onClick={() => {
           setIsCard(false);
+          setRating(null)
         }}
       >
         <BiX fontSize={28} color="white" />
@@ -118,7 +124,7 @@ const LargeCard = ({ cardData, setIsCard }) => {
           isTruncated
           color="#2C2C68"
         >
-          <a href={`https://${cardData.web_address}`} target="_blank" rel="noreferrer">
+          <a href={`${cardData.web_address}`} target="_blank" rel="noreferrer">
             {cardData.web_address}
           </a>
         </Text>
@@ -199,6 +205,17 @@ const LargeCard = ({ cardData, setIsCard }) => {
               </Text>
             </Flex>
           )}
+          <Flex>
+          <Text
+                fontSize={"small"}
+                fontWeight={500}
+                color={"#2C2C68"}
+                ml={1}
+              >
+                How would you rate this place?
+              </Text>
+              <StarRating rating={rating} setRating={setRating} place_id={cardData.id}/>
+          </Flex>
         </Flex>
       </Box>
     </Box>

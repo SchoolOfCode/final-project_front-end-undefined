@@ -6,6 +6,7 @@ button.uf-button.uf-button-primary {
     background-image: linear-gradient(to right, #17CEDA, #032396);
 }
 
+<<<<<<< HEAD
 .uf-bubble {
     
     border-color: #ff9100 !important;
@@ -32,3 +33,9 @@ button.uf-button.uf-button-primary {
 }
 
 
+=======
+.uf-actions.left button.uf-button {
+
+    background-image: linear-gradient(to right, #17CEDA, #032396);
+}
+>>>>>>> 6f5306676a261f52dd765157828f64715d8ac96f

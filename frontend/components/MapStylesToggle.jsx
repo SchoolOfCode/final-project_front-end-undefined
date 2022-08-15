@@ -44,6 +44,50 @@ const MapStylesToggle = ({}) => {
       </Link>
       <Divider orientation="vertical" height="80%" borderColor={`#FF9100`} />
       <Menu>
+<<<<<<< HEAD
+=======
+        <Link href="/About">
+          <MenuButton
+            color={`#2C2C68`}
+            as={Button}
+            rounded="full"
+            bg={"white"}
+            fontWeight={"bold"}
+            fontSize={17}
+            width="160px"
+            border="2px"
+            borderColor={`#FF9100`}
+            _hover={{
+              backgroundImage: "linear-gradient(to right, #fff500 , #ff9100)",
+            }}
+          >
+            About
+          </MenuButton>
+        </Link>
+      <Divider
+          borderColor= 'white'
+          width='1%'
+          orientation="vertical"
+        /> 
+        <Link href="/AddAPlace">
+          <MenuButton
+            color={`#2C2C68`}
+            as={Button}
+            rounded="full"
+            bg={"white"}
+            fontWeight={"bold"}
+            fontSize={17}
+            width="160px"
+            border="2px"
+            borderColor={`#FF9100`}
+            _hover={{
+              backgroundImage: "linear-gradient(to right, #fff500 , #ff9100)",
+            }}
+          >
+            Add A Place
+          </MenuButton>
+        </Link>
+>>>>>>> 6f5306676a261f52dd765157828f64715d8ac96f
         <MenuButton
           color={`#2C2C68`}
           as={Button}

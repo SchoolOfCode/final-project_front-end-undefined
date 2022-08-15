@@ -12,7 +12,8 @@ import {
 
 // When the page loads, the skeleton frame shows, but only if we're using the API.
 
-const List = ({ places, isLoading, setIsCard, setCardData }) => {
+const List = ({ places, isLoading, setIsCard, setCardData, setRating, rating, reviewData, starRating, setStarRating }) => {
+
   if (isLoading)
     return (
       <Flex
@@ -66,11 +67,14 @@ const List = ({ places, isLoading, setIsCard, setCardData }) => {
           places &&
           places.map((place, i) => (
             <>
-              <PlaceDetail
+              <PlaceDetail 
                 place={place}
                 key={i}
                 setIsCard={setIsCard}
                 setCardData={setCardData}
+                setRating={setRating}
+                rating={rating}
+                reviewData={reviewData}
               />
               <Divider
                 orientation="horizontal"
