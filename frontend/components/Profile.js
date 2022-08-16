@@ -27,10 +27,11 @@ export default function Profile() {
         };
         fetchData();}, []);
         console.log('favsData is...', favsData)
-let favName = []
+let favName = 'Prince Charles Cinema  URL: https://princecharlescinema.com/PrinceCharlesCinema.dll/Home'
         favsData.map((fav, i)=>{
             if (fav?.user_id === user?.sub){
-              favName.push('-' + fav.name + ' ' + 'URL: ' + fav.web_address)  // web_address: fav.web_address}
+              // favName.push('-' + fav.name + ' ' + 'URL: ' + fav.web_address)  // web_address: fav.web_address}
+              favName = fav.name
             }
         })
 
