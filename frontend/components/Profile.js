@@ -10,7 +10,7 @@ import {
 export default function Profile() {
     const { user, error, isLoading } = useUser();
     const [favsData, setFavsData] = useState([]);
-    const [favList, setFavList] = useState()
+    const [favList, setFavList] = useState([])
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -27,14 +27,11 @@ export default function Profile() {
         };
         fetchData();}, []);
         console.log('favsData is...', favsData)
-let favName = 'dd'
+let favName = []
         favsData.map((fav, i)=>{
-            if (fav.user_id === user.sub){
-                
-                favName = fav.name
-console.log('this is the fav list.., ', favName)
+            if (fav?.user_id === user?.sub){
+              favName.push('-' + fav.name + ' ' + 'URL: ' + fav.web_address)  // web_address: fav.web_address}
             }
-
         })
 
 

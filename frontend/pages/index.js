@@ -21,9 +21,15 @@ const Home = () => {
 
   const [favStatus, setFavStatus] = useState(false);
 
+  // Pass to PlaceDetail for the reviews
+  //pass to Large card for reviews index>Map>LargeCard
   const [reviewData, setReviewData] = useState([]);
 
   const [starRating, setStarRating] = useState()
+
+  // pass to LargeCard component index>Map>LargeCard  (LargeCard is where the rating is actually set and calculated)
+  //pass to PlaceDetail component index>List>PlaceDetail
+  const [averageRating, setAverageRating] = useState(1);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -187,6 +193,8 @@ const [searchClick, setSearchClick] = useState(false);
           starRating={starRating}
           setFavStatus={setFavStatus}
           favStatus={favStatus}
+          setAverageRating={setAverageRating}
+          averageRating={averageRating}
         />
       )}
 
@@ -206,6 +214,11 @@ const [searchClick, setSearchClick] = useState(false);
           starRating={starRating}
           setFavStatus={setFavStatus}
           favStatus={favStatus}
+          averageRating={averageRating}
+          setAverageRating={setAverageRating}
+          reviewData={reviewData}
+          
+          
         />
       )}
     </Flex>
